@@ -92,7 +92,7 @@
 
   
 
-  https://uploaddeimagens.com.br/images/004/630/171/original/petPronto.png?1696619615
+  
 
   ## <img align="center" alt="Jaque-vscode" height="30" width="30" src="https://img.icons8.com/color/48/000000/note.png" /> Casos de Uso do Sistema ##
 
