@@ -1,5 +1,3 @@
-+ #Projeto PetPronto
-
   # Projeto - PetPronto #
 
   ## Desenvolvimento Web 3 - FATEC - Grupo ##
