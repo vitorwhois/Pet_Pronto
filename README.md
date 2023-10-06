@@ -127,13 +127,10 @@ Estrutura do projeto.
 
   - Se as credenciais estiverem incorretas, o sistema exibirá uma mensagem de erro e permitirá que o usuário tente novamente.
 
-+ <br><br>
-  
+ <br><br>
   
 
 + Cadastrar Pet
-  
-  
 
 + Alterar cadastro Pet 
 
