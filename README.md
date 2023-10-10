@@ -73,7 +73,7 @@
 
   - Figma. Ferramenta utilizada para o desenvolvimento das telas.
 
-  + PHP. Utilizamos esta linguagem por ser compatível com a hospedagem disponibilizada, localweb, e vasta quantidade de recursos disponíveis para o desenvolvimento backend.
+  + PHP. Utilizamos esta linguagem por ser compatível com a hospedagem disponibilizada, locaweb, e vasta quantidade de recursos disponíveis para o desenvolvimento backend.
 
   - MySQL. Escolhido como Banco de Dados final por ser mais estruturado e ser Multiplataforma. 
     <br><br>
