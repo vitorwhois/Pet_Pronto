@@ -52,14 +52,20 @@ footer {
 }
 .btn-primary:hover{
     background-color: var(--cor-pinksandy);
-}
 
-.btn-secondary:hover{
-    background-color: var(--cor-pinksandy);
-    border: none;
+
 }
 .btn-secondary {
     background-color: white;
     color: var(--cor-darkest);
     border-color: var(--cor-primary);
+}
+.btn-secondary:hover{
+    background-color: var(--cor-pinksandy);
+    border: none;
+
+}
+
+.borda {
+    border-color: var(--cor-borda);
 }
