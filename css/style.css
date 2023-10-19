@@ -8,7 +8,6 @@
     --cor-pinksandy:#F1D5CA;
     --cor-darkest:#17323B;
     --cor-borda:#F1F3F7;
-
 }
 
 .nav-link{
@@ -25,12 +24,19 @@ a:hover {
     color: var(--cor-primary);
 }
 
-footer {
+/*arrumar o footer invadindo o main */
+footer .footer{
     height: 130px;
+    margin: 0 !important;
+    background-color: white;
+}
+.navbar-nav {
+    background-color: white;
 }
 
 #navbar {
     border-bottom: 1px var(--cor-borda);
+    background-color: white;
 }
 
 #navbar a:hover {
@@ -45,21 +51,70 @@ footer {
     justify-content: center;
     width: 100%;
 }
+.nav-link {
+    background-color: white;
+
+}
 
 .btn-primary {
     background-color:var(--cor-primary);
-    border: none;
+    border-color: var(--cor-primary);
 }
 .btn-primary:hover{
     background-color: var(--cor-pinksandy);
-}
-
-.btn-secondary:hover{
-    background-color: var(--cor-pinksandy);
-    border: none;
+    border-color: white;
 }
 .btn-secondary {
     background-color: white;
     color: var(--cor-darkest);
     border-color: var(--cor-primary);
+}
+.btn-secondary:hover{
+    background-color: var(--cor-pinksandy);
+    border: none;
+}
+
+
+.borda {
+    border-color: var(--cor-borda);
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+.hero {
+    background-color: var(--cor-pinksandy);
+}
+
+@media (max-width: 768px) {
+
+    .navbar{
+        height: 100px;
+    }
+    .footer {
+        text-align: center;
+    }
+    
+    .footer ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer li {
+        list-style: none;
+        margin-bottom: 1px;
+    }
+    #footerCell {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #FooterSocial {
+        justify-content: center;
+    }
+
+    .sandwichButton {
+        margin-top: -8px;
+    }
 }
