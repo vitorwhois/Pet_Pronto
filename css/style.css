@@ -71,7 +71,7 @@ footer .footer{
 }
 .btn-secondary:hover{
     background-color: var(--cor-pinksandy);
-    border: none;
+    border-color: white;
 }
 
 
@@ -87,6 +87,9 @@ ul, li {
     background-color: var(--cor-pinksandy);
 }
 
+.solucoes{
+    min-height: 780px;
+}
 @media (max-width: 768px) {
 
     .navbar{
@@ -118,3 +121,50 @@ ul, li {
         margin-top: -8px;
     }
 }
+
+/*Register */
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #029182;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #029182, rgba(194, 233, 251, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #029182, rgba(194, 233, 251, 1))
+    }
+    
+    .bg-indigo {
+    background-color: var(--cor-darkest);
+    }
+
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    /*register */
+
+    
