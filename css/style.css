@@ -56,25 +56,6 @@ footer .footer{
 
 }
 
-.btn-primary {
-    background-color:var(--cor-primary);
-    border-color: var(--cor-primary);
-}
-.btn-primary:hover{
-    background-color: var(--cor-pinksandy);
-    border-color: white;
-}
-.btn-secondary {
-    background-color: white;
-    color: var(--cor-darkest);
-    border-color: var(--cor-primary);
-}
-.btn-secondary:hover{
-    background-color: var(--cor-pinksandy);
-    border-color: white;
-}
-
-
 .borda {
     border-color: var(--cor-borda);
 }
@@ -90,6 +71,26 @@ ul, li {
 .solucoes{
     min-height: 780px;
 }
+
+.btn-primary {
+    background-color:var(--cor-primary);
+    border-color: var(--cor-primary);
+}
+.btn-primary:hover{
+    background-color: var(--cor-pinksandy);
+    border-color: white;
+    color: white !important;
+}
+.btn-secondary {
+    background-color: white;
+    color: var(--cor-darkest);
+    border-color: var(--cor-primary);
+}
+.btn-secondary:hover{
+    background-color: var(--cor-pinksandy);
+    border-color: white;
+}
+
 @media (max-width: 768px) {
 
     .navbar{
