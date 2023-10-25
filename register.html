@@ -14,8 +14,7 @@
 
 
 </head>
-<body id="register">
-
+<body>
   <div id="fade" class="hide">
     <div id="loader" class="spinner-border text-info hide" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -30,6 +29,7 @@
       </div>
     </div>
   </div>
+  <form action="">
 
     <section class="h-100 gradient-custom-2" id="register-container">
         <div class="container py-5 h-100">
@@ -53,19 +53,20 @@
                         
                         <div class="mb-4 pb-2">
                             <div class="form-outline">
-                              <input type="password" id="password" class="form-control form-control-lg" minlength="6" required />
-                              <label class="form-label" for="form3Examplev4">Senha</label>
+                              <input type="password" id="passwordInput" class="form-control form-control-lg" minlength="6" required />
+                              <label class="form-label" for="password">Senha</label>
                             </div>
                         </div>  
                         <div class="mb-4 pb-2">
                             <div class="form-outline">
-                              <input type="password" id="passwordConf" class="form-control form-control-lg" minlength="6" required />
-                              <label class="form-label" for="form3Examplev4">Confirme a senha</label>
+                              <input type="password" id="confirmPasswordInput" class="form-control form-control-lg" minlength="6" required />
+                              <label class="form-label" for="passwordConf">Confirme a senha</label>
                             </div>
                         </div>  
                         <div class="row ms-1 mb-lg-5 pb-lg-5" id="buttonDiv"></div>
 
-                        <!--                         
+                        <!--
+                          //Salvar informacoes do user para BD                         
                         <p id="fullName"></p>
                         <p id="sub"></p>
                         <p id="given_name"></p>
@@ -133,7 +134,7 @@
                             <div class="col-md-8 mb-4 pb-2">
         
                               <div class="form-outline form-white">
-                                <input type="text" id="logradouro" class="form-control form-control-lg" required data-input />
+                                <input type="text" id="logradouro" class="form-control form-control-lg" required disabled data-input />
                                 <label class="form-label" for="logradouro">Logradouro</label>
                               </div>
         
@@ -161,7 +162,7 @@
                             <div class="col-md-6 mb-4 pb-2">
       
                               <div class="form-outline form-white">
-                                <input type="text" id="cidade" class="form-control form-control-lg" required data-input />
+                                <input type="text" id="cidade" class="form-control form-control-lg" required disabled data-input />
                                 <label class="form-label" for="cidade">Cidade</label>
                               </div>
                           </div>
@@ -173,7 +174,7 @@
 
                           <div class="col-md-2 mb-4 pb-2">  
                             <div class="form-outline form-white">
-                              <select class="pb-3 pt-2 " id="estado" name="estado" required data-input>
+                              <select class="pb-3 pt-2 " id="estado" name="estado" required disabled data-input>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
                                 <option value="AP">AP</option>
@@ -236,5 +237,6 @@
         </div>
       </section>
 
+  </form>
 </body>
 </html>
