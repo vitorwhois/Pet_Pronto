@@ -171,3 +171,22 @@ addressForm.addEventListener("submit", (e) => {
     toggleDisabled();
   }, 1000);
 });
+
+const passwordInput = document.getElementById("passwordInput");
+const confirmPasswordInput = document.getElementById("confirmPasswordInput");
+
+passwordInput.addEventListener("keyup", (e) => {
+  // Check if password is valid
+  if (e.target.value.length >= 6 && e.target.value.length <= 30) {
+    // Check if confirmation password is valid
+    if (confirmPasswordInput.value === e.target.value) {
+      // Passwords match
+      // Show a success message
+      alert("As senhas coincidem!");
+    } else {
+      // Passwords don't match
+      // Show an error message
+      alert("As senhas não coincidem!");
+    }
+  }
+});
