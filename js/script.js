@@ -52,10 +52,11 @@ const confirmPasswordInput = document.getElementById("confirmPasswordInput");
 
 const closeButton = document.querySelector("#close-message");
 
+
 //Cep input
 cepInput.addEventListener("keypress", (e) => {
-  const onlyNumbers = /[0-9]|\./;
-  const key = String.fromCharCode(e.keyCode);
+  let onlyNumbers = /[0-9]|\./;
+  let key = String.fromCharCode(e.keyCode);
 
   console.log(key);
 
@@ -67,7 +68,6 @@ cepInput.addEventListener("keypress", (e) => {
     return;
   }
 });
-
 
 // Evento to get address
 cepInput.addEventListener("keyup", (e) => {
