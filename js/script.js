@@ -40,7 +40,7 @@ window.onload = function () {
 }
 
 //Register - Cep Validate
-const addressForm = document.querySelector("#address-form");
+const addressForm = document.querySelector("#addressForm");
 const cepInput = document.querySelector("#cep");
 const addressInput = document.querySelector("#logradouro");
 const cityInput = document.querySelector("#cidade");
@@ -49,10 +49,41 @@ const formInputs = document.querySelectorAll("[data-input]");
 
 const closeButton = document.querySelector("#close-message");
 
+//Entidade select
+//Fix display - posição
+const entidadeSelect = document.getElementById('entidade');
+const cpfInput = document.getElementById('cpf');
+const cnpjInput = document.getElementById('cnpj');
+
+entidadeSelect.addEventListener('change', function () {
+    if (entidadeSelect.value === '1') {
+        cpfInput.style.display = 'block';
+        cnpjInput.style.display = 'none';
+        cpfInput.setAttribute('required', 'true');
+        cnpjInput.removeAttribute('required');
+    } else if (entidadeSelect.value === '2') {
+        cpfInput.style.display = 'none';
+        cnpjInput.style.display = 'block';
+        cpfInput.removeAttribute('required');
+        cnpjInput.setAttribute('required', 'true');
+    }
+});
+
+// Password confirm
+//falta bloquear o envio
+let inputPass = document.querySelector('#password');
+let inputConfirmPass = document.querySelector('#confirmPassword');
+
+inputConfirmPass.addEventListener('focusout', () => {
+   if( inputPass.value !== inputConfirmPass.value){
+      alert('As senhas não coincidem');
+   }
+})
+
 //Cep input
 cepInput.addEventListener("keypress", (e) => {
-  const onlyNumbers = /[0-9]|\./;
-  const key = String.fromCharCode(e.keyCode);
+  let onlyNumbers = /[0-9]|\./;
+  let key = String.fromCharCode(e.keyCode);
 
   console.log(key);
 
@@ -64,7 +95,6 @@ cepInput.addEventListener("keypress", (e) => {
     return;
   }
 });
-
 
 // Evento to get address
 cepInput.addEventListener("keyup", (e) => {
@@ -152,26 +182,28 @@ const toggleMessage = (msg) => {
   messageElement.classList.toggle("hide");
 };
 
-// Close message modal
-closeButton.addEventListener("click", () => toggleMessage());
+formInputs.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(passwordInput);
+  console.log(confirmPasswordInput);
 
-// Save address
-addressForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  checkInputPassword();
+})
 
-  toggleLoader();
+function checkInputPassword(){
+  const passwordInput = passwordInput.value;
+  const confirmPasswordInput = confirmPasswordInput.value;
+  console.log(passwordInput);
+  console.log(confirmPasswordInput);
+  
+  if (confirmPasswordInput !== passwordInput){
+    window.alert("As senhas não são iguais.")
+  }
 
-  setTimeout(() => {
-    toggleLoader();
+}
 
-    toggleMessage("Endereço salvo com sucesso!");
 
-    addressForm.reset();
-
-    toggleDisabled();
-  }, 1000);
-});
-
+/*
 const passwordInput = document.getElementById("passwordInput");
 const confirmPasswordInput = document.getElementById("confirmPasswordInput");
 
@@ -190,3 +222,15 @@ passwordInput.addEventListener("keyup", (e) => {
     }
   }
 });
+*/
+
+function confereSenha() {
+  const passwordInput = document.querySelector('input[name=password]');
+  const confirmPasswordInput = document.querySelector('input[name=confirmPassword]');
+
+  if (confirmPasswordInput.value === passwordInput.value){
+    confirmPasswordInput.setCustomValidity('');
+  }else {
+    confirmPasswordInput.setCustomValidity('As senhas nnão conferem');
+  }
+}
