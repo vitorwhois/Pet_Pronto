@@ -40,12 +40,15 @@ window.onload = function () {
 }
 
 //Register - Cep Validate
-const addressForm = document.querySelector("#address-form");
+const addressForm = document.querySelector("#addressForm");
 const cepInput = document.querySelector("#cep");
 const addressInput = document.querySelector("#logradouro");
 const cityInput = document.querySelector("#cidade");
 const regionInput = document.querySelector("#estado");
 const formInputs = document.querySelectorAll("[data-input]");
+
+const passwordInput = document.getElementById("passwordInput");
+const confirmPasswordInput = document.getElementById("confirmPasswordInput");
 
 const closeButton = document.querySelector("#close-message");
 
@@ -152,26 +155,28 @@ const toggleMessage = (msg) => {
   messageElement.classList.toggle("hide");
 };
 
-// Close message modal
-closeButton.addEventListener("click", () => toggleMessage());
+formInputs.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log(passwordInput);
+  console.log(confirmPasswordInput);
 
-// Save address
-addressForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  checkInputPassword();
+})
 
-  toggleLoader();
+function checkInputPassword(){
+  const passwordInput = passwordInput.value;
+  const confirmPasswordInput = confirmPasswordInput.value;
+  console.log(passwordInput);
+  console.log(confirmPasswordInput);
+  
+  if (confirmPasswordInput !== passwordInput){
+    window.alert("As senhas não são iguais.")
+  }
 
-  setTimeout(() => {
-    toggleLoader();
+}
 
-    toggleMessage("Endereço salvo com sucesso!");
 
-    addressForm.reset();
-
-    toggleDisabled();
-  }, 1000);
-});
-
+/*
 const passwordInput = document.getElementById("passwordInput");
 const confirmPasswordInput = document.getElementById("confirmPasswordInput");
 
@@ -190,3 +195,15 @@ passwordInput.addEventListener("keyup", (e) => {
     }
   }
 });
+*/
+
+function confereSenha() {
+  const passwordInput = document.querySelector('input[name=password]');
+  const confirmPasswordInput = document.querySelector('input[name=confirmPassword]');
+
+  if (confirmPasswordInput.value === passwordInput.value){
+    confirmPasswordInput.setCustomValidity('');
+  }else {
+    confirmPasswordInput.setCustomValidity('As senhas nnão conferem');
+  }
+}

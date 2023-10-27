@@ -29,8 +29,8 @@
       </div>
     </div>
   </div>
-  <form action="">
 
+  <form action="" id="#addressForm">
     <section class="h-100 gradient-custom-2" id="register-container">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -53,13 +53,13 @@
                         
                         <div class="mb-4 pb-2">
                             <div class="form-outline">
-                              <input type="password" id="passwordInput" class="form-control form-control-lg" minlength="6" required />
+                              <input type="password" id="passwordInput" name="password" class="form-control form-control-lg" minlength="6" required/>
                               <label class="form-label" for="password">Senha</label>
                             </div>
                         </div>  
                         <div class="mb-4 pb-2">
                             <div class="form-outline">
-                              <input type="password" id="confirmPasswordInput" class="form-control form-control-lg" minlength="6" required />
+                              <input type="password" id="confirmPasswordInput"  name="confirmPassword" class="form-control form-control-lg" minlength="6"/>
                               <label class="form-label" for="passwordConf">Confirme a senha</label>
                             </div>
                         </div>  
@@ -218,7 +218,7 @@
                         </div>
       
                         <div class="form-check d-flex justify-content-start mb-4 pb-3">
-                          <input class="form-check-input me-3" type="checkbox" value="" id="termos" />
+                          <input class="form-check-input me-3" type="checkbox" value="" id="termos" required />
                           <label class="form-check-label text-white" for="termos">
                            Eu estou de acordo com os <a href="termos.html" class="text-white"><u>Termos e condições.</u></a>
                           </label>
@@ -236,7 +236,6 @@
           </div>
         </div>
       </section>
-
   </form>
 </body>
 </html>
