@@ -47,11 +47,19 @@ const cityInput = document.querySelector("#cidade");
 const regionInput = document.querySelector("#estado");
 const formInputs = document.querySelectorAll("[data-input]");
 
-const passwordInput = document.getElementById("passwordInput");
-const confirmPasswordInput = document.getElementById("confirmPasswordInput");
-
 const closeButton = document.querySelector("#close-message");
 
+
+// Password confirm
+//falta bloquear o envio
+let inputPass = document.querySelector('#password');
+let inputConfirmPass = document.querySelector('#confirmPassword');
+
+inputConfirmPass.addEventListener('focusout', () => {
+   if( inputPass.value !== inputConfirmPass.value){
+      alert('As senhas não coincidem');
+   }
+})
 
 //Cep input
 cepInput.addEventListener("keypress", (e) => {
