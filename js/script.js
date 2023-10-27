@@ -49,6 +49,25 @@ const formInputs = document.querySelectorAll("[data-input]");
 
 const closeButton = document.querySelector("#close-message");
 
+//Entidade select
+//Fix display - posição
+const entidadeSelect = document.getElementById('entidade');
+const cpfInput = document.getElementById('cpf');
+const cnpjInput = document.getElementById('cnpj');
+
+entidadeSelect.addEventListener('change', function () {
+    if (entidadeSelect.value === '1') {
+        cpfInput.style.display = 'block';
+        cnpjInput.style.display = 'none';
+        cpfInput.setAttribute('required', 'true');
+        cnpjInput.removeAttribute('required');
+    } else if (entidadeSelect.value === '2') {
+        cpfInput.style.display = 'none';
+        cnpjInput.style.display = 'block';
+        cpfInput.removeAttribute('required');
+        cnpjInput.setAttribute('required', 'true');
+    }
+});
 
 // Password confirm
 //falta bloquear o envio
