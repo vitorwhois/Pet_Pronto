@@ -72,6 +72,10 @@ ul, li {
     min-height: 780px;
 }
 
+.bg-secondary {
+    background-color: var(--cor-secundary) !important;
+}
+
 .btn-primary {
     background-color:var(--cor-primary);
     border-color: var(--cor-primary);
