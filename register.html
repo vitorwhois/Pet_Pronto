@@ -1,3 +1,10 @@
+<?php
+
+  session_start();
+  include('conexao.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -30,57 +37,13 @@
     </div>
   </div>
 
-  <form action="" id="#addressForm">
+  <form action="saveform.php" method="post" id="#addressForm">
     <section class="h-100 gradient-custom-2" id="register-container">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12">
-              <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-                <div class="card-body p-0">
-                  <div class="row g-0">
-                    <div class="col-lg-6">
-                      <div class="p-5">
-                        <h1 class=" mb-5" style="color: var(--cor--darkest);">Cadastro</h1>
-      
-                        <div class="mb-4 pb-2">
-                          <h3 class="fw-normal pt-3 mb-5">Login</h3>
-
-                            <div class="form-outline">
-                              <input type="email" id="email" class="form-control form-control-lg" required />
-                              <label class="form-label" for="form3Examplev4">Email</label>
-                            </div>
-                          </div>
-                        
-                        <div class="mb-4 pb-2">
-                            <div class="form-outline">
-                              <input type="password" id="password" name="password" class="form-control form-control-lg" minlength="6" required/>
-                              <label class="form-label" for="password">Senha</label>
-                            </div>
-                        </div>  
-                        <div class="mb-4 pb-2">
-                            <div class="form-outline">
-                              <input type="password" id="confirmPassword"  name="confirmPassword" class="form-control form-control-lg" minlength="6"/>
-                              <label class="form-label" for="passwordConf">Confirme a senha</label>
-                            </div>
-                        </div>  
-                        <div class="row ms-1 mb-lg-5 pb-lg-5" id="buttonDiv"></div>
-
-                        <!--
-                          //Salvar informacoes do user para BD                         
-                        <p id="fullName"></p>
-                        <p id="sub"></p>
-                        <p id="given_name"></p>
-                        <p id="family_name"></p>
-                        <p id="email"></p>
-                        <p id="verifiedEmail"></p>
-                        <img id="picture" />
-                       -->
-      
-                        
-                        <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick="voltar()" ">Cancelar</a>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 bg-indigo text-white">
+            <div class="col-lg-6 bg">
+              <div class="card card-registration card-registration-2 bg-indigo" style="border-radius: 15px;">
+                    <div class="col-lg-12 bg-indigo text-white" style="border-radius: 15px;">
                       <div class="p-5">
                         <h3 class="fw-normal pt-3 mb-5">Informações do Perfil</h3>
 
@@ -89,16 +52,16 @@
                             
       
                             <div class="form-outline">
-                              <input type="text" id="form3Examplev2" class="form-control form-control-lg" required />
                               <label class="form-label" for="form3Examplev2">Nome</label>
+                              <input type="text" id="" name="nome" class="form-control form-control-lg" required />
                             </div>
       
                           </div>
                           <div class="col-md-8 mb-4 pb-2">
       
                             <div class="form-outline">
-                              <input type="text" id="form3Examplev3" class="form-control form-control-lg" required />
                               <label class="form-label" for="form3Examplev3">Sobrenome</label>
+                              <input type="text" id="" name="sobrenome" class="form-control form-control-lg" required />
                             </div>
       
                           </div>
@@ -106,24 +69,19 @@
     
       
                         <div class="row">
-                          <div class="col-md-4 mb-4 pb-3 mb-md-0 pb-md-0 mb-lg-4 pb-lg-5 ">
-      
-                                <select class="form-select form-control form-control-lg" id="entidade" required>
-                                    <option value="1" selected>Pessoa Física</option>
-                                    <option value="2">Pessoa Juridica</option>
+                          <div class="col-md-4 mb-4 pb-2  ">
+                                <label class="form-label" for="">Entidade</label>
+                                <select class="form-select form-control form-control-lg" id="entidade" name="entidade" required>
+                                    <option value="pf" selected>Pessoa Física</option>
+                                    <option value="pj">Pessoa Juridica</option>
                                     </select>
       
                           </div>
                           <div class="col-md-8 mb-4 pb-2">
       
                             <div class="form-outline">
-                                <input type="text" id="cpf" class="form-control form-control-lg" minlength="11" maxlength="11" required pattern="^[0-9]{11}$" title="Digite somente os números (11)" placeholder="CPF"/>
-                                <label class="form-label" for=""></label>
-                              </div>
-
-                              <div class="form-outline pt-0">
-                                <input type="text" id="cnpj" class="form-control form-control-lg" minlength="14" maxlength="14"required pattern="^[0-9]{11}$" title="Digite somente os números (14)" placeholder="CNPJ" />
-                                <label class="form-label" for=""></label>
+                              <label class="form-label" for="">CPF - CNPJ</label>
+                                <input type="text" id="cpf" name="cpf" class="form-control form-control-lg" minlength="11" maxlength="14" required title="Digite somente os números" placeholder="Pessoa Fisica CPF ou CNPJ para PJ"/>
                               </div>
                           </div>
                         </div>
@@ -131,44 +89,42 @@
                             <div class="col-md-4 mb-4 pb-2">
         
                               <div class="form-outline form-white">
-                                <input type="text" id="cep" class="form-control form-control-lg" minlength="8" maxlength="8" required/>
                                 <label class="form-label" for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" class="form-control form-control-lg" minlength="8" maxlength="8" required/>
                               </div>
         
                             </div>
                             <div class="col-md-8 mb-4 pb-2">
         
                               <div class="form-outline form-white">
-                                <input type="text" id="logradouro" class="form-control form-control-lg" required disabled data-input />
                                 <label class="form-label" for="logradouro">Logradouro</label>
+                                <input type="text" id="logradouro" name="logradouro" class="form-control form-control-lg" required  data-input />
                               </div>
-        
                             </div>
                           </div>
-    
       
                         <div class="row">
                             <div class="col-md-3 mb-4 pb-2">
         
                               <div class="form-outline">
-                                <input type="text" id="numero" class="form-control form-control-lg" required  />
-                                <label class="form-label" for="numero">Número</label>
+                                <label class="form-label" for="">Número</label>
+                                <input type="text" id="numero" name="numero" class="form-control form-control-lg" required  />
                               </div>
         
                             </div>
                             <div class="col-md-3 mb-4 pb-2">
         
                               <div class="form-outline">
-                                <input type="text" id="complemento" class="form-control form-control-lg" />
                                 <label class="form-label" for="complemento">Complemento</label>
+                                <input type="text" id="complemento" name="complemento" class="form-control form-control-lg" />
                               </div>
         
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
       
                               <div class="form-outline form-white">
-                                <input type="text" id="cidade" class="form-control form-control-lg" required disabled data-input />
                                 <label class="form-label" for="cidade">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" class="form-control form-control-lg" required data-input />
                               </div>
                           </div>
                         </div>
@@ -179,7 +135,8 @@
 
                           <div class="col-md-2 mb-4 pb-2">  
                             <div class="form-outline form-white">
-                              <select class="pb-3 pt-2 " id="estado" name="estado" required disabled data-input>
+                              <label for="estado">Estado</label>
+                              <select class="pb-3 pt-2 " id="estado" name="estado" required  data-input>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>
                                 <option value="AP">AP</option>
@@ -206,17 +163,15 @@
                                 <option value="SC">SC</option>
                                 <option value="SP">SP</option>
                                 <option value="SE">SE</option>
-                                <option value="TO">TO</option>
-                             
+                                <option value="TO">TO</option>                           
                             </select>
-                            <label for="estado">Estado</label>
                             </div>
                           </div>
                           <div class="col-md-7 mb-4 pb-2">
       
                             <div class="form-outline form-white">
-                              <input type="tel" id="phone" class="form-control form-control-lg" />
                               <label class="form-label" for="phone">Telefone</label>
+                              <input type="tel" id="phone" name="telefone" class="form-control form-control-lg" required/>
                             </div>
       
                           </div>
@@ -229,13 +184,11 @@
                           </label>
                         </div>
       
-                        <button type="submit" class="btn btn-primary btn-lg "
-                          data-mdb-ripple-color="dark">Cadastrar</button>
+                        <a href="saveform.php"><button type="submit" class="btn btn-primary btn-lg "
+                          data-mdb-ripple-color="dark">Cadastrar</button></a>
       
                       </div>
                     </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
