@@ -93,6 +93,7 @@ ul, li {
 .btn-secondary:hover{
     background-color: var(--cor-pinksandy);
     border-color: white;
+    color: white !important;
 }
 
 @media (max-width: 768px) {

@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssssssss", $nome, $sobrenome, $entidade, $cpf, $cep, $logradouro, $numero, $complemento, $cidade, $estado, $telefone);
 
     if ($stmt->execute()) {
-        header("Location: index.html");
+        header("Location: perfilusuario.html");
     } else {
         echo "Erro: " - $sql . "<br>" . $conn->error;
     }
