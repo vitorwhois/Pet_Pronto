@@ -1,9 +1,9 @@
-<?php
+<!--<?php
 
   session_start();
   include('conexao.php');
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,17 +11,69 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1">
   <title>PetPronto</title>
+  <meta name="description" content="Descubra o PetPronto: sua solução completa para cuidar, rastrear e proteger seu pet. Acesse informações de saúde, localize seu companheiro peludo e aproveite descontos exclusivos. Seu melhor amigo merece o melhor, junte-se a nós hoje!">
+</head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
-
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
-  <script src="js/script.js" defer></script>
-
-
+  <meta name="google-site-verification" content="AJPTi5rjZ0zTw-6RKsx0SsQKygpG7xSAZtrWjuG1Y7c" />
 </head>
+
 <body>
+<div class="container d-flex justify-content-between align-items-center my-2" id="navtop">
+    <ul class="nav justify-content-around gap-4">
+    <li><i class="bi bi-envelope"></i><a class="ms-1" href="mailto:contato@petpronto.com.br">contact@petpronto.com.br</a></li>
+    <li><i class="bi bi-whatsapp"></i><a class="ms-1" href="https://wa.me//5511990908080?text=Tenho%20interesse%20em%20saber%20mais%20sobre%20o%20PetPronto">(11) 99090-8080</a></li>
+    </ul>
+
+<ul class="nav col-md-4 justify-content-end d-none d-md-flex">
+    <li class="ms-3"><a class="" href=""><img src="img/icons/Facebook.png" alt=""></a></li>
+    <li class="ms-3"><a class=""><img src="img/icons/Instagram.png" alt=""></a></li>
+    <li class="ms-3"><a class=""><img src="img/icons/Twitter.png" alt=""></a></li>
+
+</ul>
+</div>
+
+<nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
+
+    <div class="container py-3 text-center">
+        <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+
+
+        <button class="navbar-toggler" type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbar-items" 
+        aria-controls="navbar-items"
+        aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-items">
+        <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
+            <li class="nav-link">
+                <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            </li>
+            <li class="nav-link">
+                <a href="sobre.html" class="nav-link ">Sobre</a>
+            </li>
+            <li class="nav-link">
+                <a href="planos.html" class="nav-link">Planos</a>
+            </li>
+            <li class="nav-link">
+                <a href="contato.html" class="nav-link">Contato</a>
+            </li>
+        </ul>
+    <div>
+        <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
+            <li class="nav-item">
+                <a href="login.html"><button class="btn btn-secondary">Login</button></a>
+            </li>
+            <li class="nav-item">
+                <a href="signup.html" class="btn btn-primary">Cadastrar</a>
+            </li>
+        </ul>
+    </div>        
+    </div> 
+</nav>
   <div id="fade" class="hide">
     <div id="loader" class="spinner-border text-info hide" role="status">
       <span class="visually-hidden">Loading...</span>
@@ -37,7 +89,7 @@
     </div>
   </div>
 
-  <form action="saveform.php" method="post" id="#addressForm">
+  <form action="perfilusuario.html" method="get" id="#addressForm">
     <section class="h-100 gradient-custom-2" id="register-container">
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -184,7 +236,7 @@
                           </label>
                         </div>
       
-                        <a href="saveform.php"><button type="submit" class="btn btn-primary btn-lg "
+                        <a href="perfilusuario.html"><button type="submit" class="btn btn-primary btn-lg "
                           data-mdb-ripple-color="dark">Cadastrar</button></a>
       
                       </div>

@@ -199,5 +199,95 @@ ul, li {
     }
     }
 
-    /*register */
+ /* about us */
+.aboutus {
+    min-height: 80vh;
+}
 
+/* planos */
+.pricing8 {
+    color: var(--cor-darkest);
+    font-weight: 300;
+  }
+  
+  .pricing8 h1,
+  .pricing8 h2,
+  .pricing8 h3,
+  .pricing8 h4,
+  .pricing8 h5,
+  .pricing8 h6 {
+    color: var(--cor-darkest);
+  }
+  
+  .pricing8 h5 {
+      line-height: 22px;
+      font-size: 18px;
+  }
+  
+  .pricing8 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+  }
+  
+  .pricing8 .display-5 {
+    font-size: 3rem;
+  }
+  
+  .pricing8 .font-14 {
+    font-size: 14px;
+  }
+  
+  .pricing8 .pricing-box sup {
+    top: -20px;
+    font-size: 16px;
+  }
+  
+  .pricing8 .btn-info-gradiant {
+    background: var(--cor-primary);
+    background: rgb(5,130,117);
+    background: linear-gradient(90deg, rgba(5,130,117,1) 12%, rgba(2,145,130,1) 84%, rgba(6,167,150,1) 100%);
+  }
+  
+  .pricing8 .btn-info-gradiant:hover {
+    background: rgb(5,130,117);
+    background: linear-gradient(90deg, rgba(5,130,117,1) 12%, rgba(2,145,130,1) 84%, rgba(14,187,171,1) 100%);
+    color: var(--cor-pinksandy);
+  }
+  
+  .pricing8 .btn-danger-gradiant {
+    background: rgb(241,213,202);
+    background: linear-gradient(90deg, rgba(241,213,202,1) 12%, rgba(241,213,202,1) 84%, rgba(251,234,228,1) 100%);
+  }
+  
+  .pricing-box-premium {
+    background-color: var(--cor-pinksandy);
+    background: var(--cor-secundary);
+  }
+
+  /* contato*/
+  .well {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.map {
+    height: 328px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.panel-default {
+    border: none;
+    box-shadow: none;
+}
+
+.contact {
+    min-height: 70vh;
+}
+
+.bi-bookmark-heart, .bi-person-raised-hand, .bi-gear-fill {
+    color: var(--cor-primary);
+}
