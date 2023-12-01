@@ -1,8 +1,6 @@
-
-<!--  <?php
-include('conexao.php');
-include('logar.php'); 
-?> -->
+<?php
+include('php/logar.php');
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -74,7 +72,7 @@ include('logar.php');
         </div>
       </div>
   </nav>
-  <form action="perfilusuario.html">
+  <form action="php/logar.php" method="POST">
 
     <section class="h-100 gradient-custom-2" id="register-container">
       <div class="container py-5 h-90">
@@ -89,15 +87,15 @@ include('logar.php');
                     <div class="mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="email" id="email" class="form-control form-control-lg" required />
+                        <input type="email" name="email" id="email" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Examplev4">Email</label>
                       </div>
                     </div>
 
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="passwordInput" class="form-control form-control-lg" minlength="6" required />
-                        <label class="form-label" for="password">Senha</label>
+                        <input type="senha" name="senha" id="passwordInput" class="form-control form-control-lg" minlength="6" required />
+                        <label class="form-label" for="senha">Senha</label>
                       </div>
                     </div>
                     <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
@@ -119,9 +117,9 @@ include('logar.php');
                     <div class="d-flex justify-content-between">
                       <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
-                        <a href="perfilusuario.html">
-                        <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
-                      </a>
+                        
+                        <button type=" submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
+
                     </div>
                   </div>
                 </div>
@@ -138,15 +136,15 @@ include('logar.php');
       <p class="col-md-4 mb-0 text-mute">Copyright © 2023 Pet Pronto</p>
 
 
-    <ul class="nav col-md-4 justify-content-center">       
-      <li class="nav-link"><a href="https://github.com/vitorwhois/Pet_Pronto">Projeto em construção <i class="bi bi-github"></i></a></li>
+      <ul class="nav col-md-4 justify-content-center">
+        <li class="nav-link"><a href="https://github.com/vitorwhois/Pet_Pronto">Projeto em construção <i class="bi bi-github"></i></a></li>
       </ul>
-    <ul class="nav col justify-content-center justify-content-md-end" id="FooterSocial">
-      <li ><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Facebook.png" alt=""></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Instagram.png" alt=""></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Twitter.png" alt=""></svg></a></li>
-    </ul>
-   </div>
+      <ul class="nav col justify-content-center justify-content-md-end" id="FooterSocial">
+        <li><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Facebook.png" alt=""></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Instagram.png" alt=""></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Twitter.png" alt=""></svg></a></li>
+      </ul>
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>

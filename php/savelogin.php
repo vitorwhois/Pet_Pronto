@@ -1,5 +1,5 @@
 <?php
-require_once "conexao.php";
+require_once "../conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -8,13 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    $sql = "INSERT INTO cliente (email, senha) VALUES (?, ?)";
+    $sql = "INSERT INTO usuario (email, senha) VALUES (?, ?)";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $hashed_password);
 
     if ($stmt->execute()) {
-        header("Location: register.html");
+        header("Location: ../register.html");
     } else {
         echo "Erro: " - $sql . "<br>" . $conn->error;
     }

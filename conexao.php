@@ -2,10 +2,10 @@
 
 session_start();
 
-$usuario = 'root';
-$senha = '';
-$database = 'petpronto';
-$hostname = 'localhost';
+$usuario = 'devweb6sql';
+$senha = 'k2023_FaTEC#$';
+$database = 'devweb6sql';
+$hostname = 'devweb6sql.mysql.dbaas.com.br';
 
 $conn = new mysqli($hostname, $usuario, $senha, $database);
 
