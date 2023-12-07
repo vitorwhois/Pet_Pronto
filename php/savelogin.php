@@ -1,14 +1,19 @@
 <?php
 require_once "../conexao.php";
 
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = $_POST['password'];
     $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
 
 
 
-    $sql = "INSERT INTO usuario (email, senha) VALUES (?, ?)";
+    $sql = "INSERT INTO cliente (email, senha) VALUES (?, ?)";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $hashed_password);

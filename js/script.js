@@ -3,6 +3,95 @@ function voltar() {
   window.history.back();
 }
 
+// Confirmar se as senhas são iguais
+function checkPassword() {
+  const passwordInput = document.querySelector('input[name=password]');
+  const confirmPasswordInput = document.querySelector('input[name=confirmPassword]');
+
+  if (confirmPasswordInput.value === passwordInput.value){
+    confirmPasswordInput.setCustomValidity('');
+  }else {
+    confirmPasswordInput.setCustomValidity('As senhas não conferem');
+  }
+}
+
+// Padronizar camp cpf - cnpj de acordo com a entidade
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('entidade').addEventListener('change', function () {
+      var entidade = this.value;
+      var cpfInput = document.getElementById('cpfCnpj');
+
+      // Limpar o valor atual do campo
+      cpfInput.value = '';
+
+      // Remover estilos de validação (se houver)
+      cpfInput.classList.remove('is-invalid');
+      cpfInput.setCustomValidity('');
+
+      // Define o tamanho de acordo com a entidade
+      if (entidade === 'pf') {
+          cpfInput.placeholder = 'Digite o CPF, somente números';
+          cpfInput.maxLength = 14;
+      } else {
+          cpfInput.placeholder = 'Digite o CNPJ, somente números';
+          cpfInput.maxLength = 17;
+      }
+  });
+});
+
+// Função para adicionnar mascara CPF CNPJ
+var CpfCnpjMaskBehavior = function (val) {
+  return val.replace(/\D/g, '').length <= 11 ? '000.000.000-009' : '00.000.000/0000-00';
+},
+cpfCnpjpOptions = {
+  onKeyPress: function(val, e, field, options) {
+    field.mask(CpfCnpjMaskBehavior.apply({}, arguments), options);
+  }
+};
+
+$(function() {
+$(':input[name=cpfCnpj]').mask(CpfCnpjMaskBehavior, cpfCnpjpOptions);
+})
+
+
+// Validar Cep
+
+const clearAddress = (address) => {
+  document.getElementById('address').value = '';
+  document.getElementById('city').value = '';
+  document.getElementById('state').value = '';
+}
+
+
+const fillForm = (address) => {
+  document.getElementById('address').value = address.logradouro;
+  document.getElementById('city').value = address.localidade;
+  document.getElementById('state').value = address.uf;
+}
+
+let isNumber = (number) => /^[0-9]+$/.test(number);
+const cepValid = (cep) => cep.length == 8 && isNumber(cep);
+
+const pesquisarCep = async() => {
+  clearAddress();
+
+  const cep = document.getElementById('cep').value;
+  const url = `https://viacep.com.br/ws/${cep}/json/`;
+  if (cepValid(cep)){
+    const data = await fetch(url)
+    const address = await data.json();
+    if (address.hasOwnProperty('erro')){
+      document.getElementById('address').value = 'Endereço não encontrado!';
+    }else{
+      fillForm(address);
+    }
+  }else{
+    document.getElementById('address').value = 'Cep inválido!';
+  }
+}
+document.getElementById('cep').addEventListener('focusout',pesquisarCep);
+
+
 // Google Auth
 function handleCredentialResponse(response) {
   const data = jwt_decode(response.credential)
@@ -22,7 +111,7 @@ window.onload = function () {
   google.accounts.id.initialize({
     client_id: "535234385509-q1fst7ssi3g2pq3ctg4ab5k8k1ghqoto.apps.googleusercontent.com",
     callback: handleCredentialResponse
-  });
+  }); 
 
   google.accounts.id.renderButton(
     document.getElementById("buttonDiv"), {
@@ -37,200 +126,4 @@ window.onload = function () {
   );
 
   google.accounts.id.prompt(); // also display the One Tap dialog
-}
-
-//Register - Cep Validate
-const addressForm = document.querySelector("#addressForm");
-const cepInput = document.querySelector("#cep");
-const addressInput = document.querySelector("#logradouro");
-const cityInput = document.querySelector("#cidade");
-const regionInput = document.querySelector("#estado");
-const formInputs = document.querySelectorAll("[data-input]");
-
-const closeButton = document.querySelector("#close-message");
-
-//Entidade select
-//Fix display - posição
-const entidadeSelect = document.getElementById('entidade');
-const cpfInput = document.getElementById('cpf');
-const cnpjInput = document.getElementById('cnpj');
-
-entidadeSelect.addEventListener('change', function () {
-    if (entidadeSelect.value === '1') {
-        cpfInput.style.display = 'block';
-        cnpjInput.style.display = 'none';
-        cpfInput.setAttribute('required', 'true');
-        cnpjInput.removeAttribute('required');
-    } else if (entidadeSelect.value === '2') {
-        cpfInput.style.display = 'none';
-        cnpjInput.style.display = 'block';
-        cpfInput.removeAttribute('required');
-        cnpjInput.setAttribute('required', 'true');
-    }
-});
-
-// Password confirm
-//falta bloquear o envio
-let inputPass = document.querySelector('#password');
-let inputConfirmPass = document.querySelector('#confirmPassword');
-
-inputConfirmPass.addEventListener('focusout', () => {
-   if( inputPass.value !== inputConfirmPass.value){
-      alert('As senhas não coincidem');
-   }
-})
-
-//Cep input
-cepInput.addEventListener("keypress", (e) => {
-  let onlyNumbers = /[0-9]|\./;
-  let key = String.fromCharCode(e.keyCode);
-
-  console.log(key);
-
-  console.log(onlyNumbers.test(key));
-
-  // allow only numbers
-  if (!onlyNumbers.test(key)) {
-    e.preventDefault();
-    return;
-  }
-});
-
-// Evento to get address
-cepInput.addEventListener("keyup", (e) => {
-  const inputValue = e.target.value;
-  //   Check if we have a CEP
-  if (inputValue.length === 8) {
-    getAddress(inputValue);
-  }
-});
-
-// Get address from API
-const getAddress = async (cep) => {
-  toggleLoader();
-
-  cepInput.blur();
-
-  const apiUrl = `https://viacep.com.br/ws/${cep}/json/`;
-
-  const response = await fetch(apiUrl);
-
-  const data = await response.json();
-
-  console.log(data);
-  console.log(formInputs);
-  console.log(data.erro);
-
-  // Show error and reset form - Msg de erro não esta aparecendo
-  if (data.erro === "true") {
-    if (!addressInput.hasAttribute("disabled")) {
-      toggleDisabled();
-    }
-
-    addressForm.reset();
-    toggleLoader();
-
-    toggleMessage("CEP Inválido, tente novamente.");
-    return;
-  }
-
-  
-  // Activate disabled attribute if form is empty
-  if (addressInput.value === "") {
-    toggleDisabled();
-  }
-
-  addressInput.value = data.logradouro;
-  cityInput.value = data.localidade;
-  regionInput.value = data.uf;
-
-  toggleLoader();
-};
-
-// Add or remove disable attribute
-const toggleDisabled = () => {
-  if (regionInput.hasAttribute("disabled")) {
-    formInputs.forEach((input) => {
-      input.removeAttribute("disabled");
-    });
-  } else {
-    formInputs.forEach((input) => {
-      input.setAttribute("disabled", "disabled");
-    });
-  }
-};
-
-// Show or hide loader
-const toggleLoader = () => {
-  const fadeElement = document.querySelector("#fade");
-  const loaderElement = document.querySelector("#loader");
-
-  fadeElement.classList.toggle("hide");
-  loaderElement.classList.toggle("hide");
-};
-
-// Show or hide message 
-const toggleMessage = (msg) => {
-  const fadeElement = document.querySelector("#fade");
-  const messageElement = document.querySelector("#message");
-
-  const messageTextElement = document.querySelector("#message p");
-
-  messageTextElement.innerText = msg;
-
-  fadeElement.classList.toggle("hide");
-  messageElement.classList.toggle("hide");
-};
-
-formInputs.addEventListener("submit", (event) => {
-  event.preventDefault();
-  console.log(passwordInput);
-  console.log(confirmPasswordInput);
-
-  checkInputPassword();
-})
-
-function checkInputPassword(){
-  const passwordInput = passwordInput.value;
-  const confirmPasswordInput = confirmPasswordInput.value;
-  console.log(passwordInput);
-  console.log(confirmPasswordInput);
-  
-  if (confirmPasswordInput !== passwordInput){
-    window.alert("As senhas não são iguais.")
-  }
-
-}
-
-
-/*
-const passwordInput = document.getElementById("passwordInput");
-const confirmPasswordInput = document.getElementById("confirmPasswordInput");
-
-passwordInput.addEventListener("keyup", (e) => {
-  // Check if password is valid
-  if (e.target.value.length >= 6 && e.target.value.length <= 30) {
-    // Check if confirmation password is valid
-    if (confirmPasswordInput.value === e.target.value) {
-      // Passwords match
-      // Show a success message
-      alert("As senhas coincidem!");
-    } else {
-      // Passwords don't match
-      // Show an error message
-      alert("As senhas não coincidem!");
-    }
-  }
-});
-*/
-
-function confereSenha() {
-  const passwordInput = document.querySelector('input[name=password]');
-  const confirmPasswordInput = document.querySelector('input[name=confirmPassword]');
-
-  if (confirmPasswordInput.value === passwordInput.value){
-    confirmPasswordInput.setCustomValidity('');
-  }else {
-    confirmPasswordInput.setCustomValidity('As senhas nnão conferem');
-  }
 }

@@ -1,10 +1,8 @@
 <?php
-if(!isset($_SESSION)) {
+if (!isset($_SESSION)) {
     session_start();
 }
 
-if(!isset($_SESSION['id'])){
-    die("voce nao esta logado")
+if (!isset($_SESSION['email'])) {
+    die("voce nao esta logado");
 }
-
-?>

@@ -99,13 +99,13 @@ include('../conexao.php');
 
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="password" name="senha" class="form-control form-control-lg" minlength="6" required />
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                         <label class="form-label" for="password">Senha</label>
                       </div>
                     </div>
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" />
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()"/>
                         <label class="form-label" for="passwordConf">Confirme a senha</label>
                       </div>
                     </div>
@@ -128,7 +128,7 @@ include('../conexao.php');
                       <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
 
-                        <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 " onclick="checkInputPassword()">Cadastrar</button>
 
                     </div>
                   </div>

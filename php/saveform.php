@@ -1,11 +1,14 @@
 <?php
-require_once "conexao.php";
+require_once "../conexao.php";
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $sobrenome = $_POST['sobrenome'];
     $entidade = $_POST['entidade'];
-    $cpf = $_POST['cpf'];
+    $cpf = $_POST['cpfCnpj'];
     $cep = $_POST['cep'];
     $logradouro = $_POST['logradouro'];
     $numero = $_POST['numero'];
@@ -23,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssssssssss", $nome, $sobrenome, $entidade, $cpf, $cep, $logradouro, $numero, $complemento, $cidade, $estado, $telefone);
 
     if ($stmt->execute()) {
-        header("Location: perfilusuario.html");
+        header("Location: ../perfilusuario.html");
     } else {
         echo "Erro: " - $sql . "<br>" . $conn->error;
     }

@@ -1,34 +1,56 @@
 <?php
 include __DIR__ . "/../conexao.php";
 
-if (isset($_POST['email']) || isset($_POST['senha'])) {
+
+if (isset($_POST['email']) && isset($_POST['senha'])) {
   if (strlen($_POST['email']) == 0) {
-    echo "preencha seu email";
-  } else if (strlen($_POST['senha']) == 0) {
-    echo "preencha sua senha";;
+    echo "Preencha seu e-mail";
+  } elseif (strlen($_POST['senha']) == 0) {
+    echo "Preencha sua senha";
   } else {
-    //limpa o campo email - contra sql injection
+    // Limpa o campo email - contra SQL injection
     $email = $conn->real_escape_string($_POST['email']);
     $senha = $conn->real_escape_string($_POST['senha']);
 
-    $sql_code = "SELECT * FROM usuario WHERE email = '$email' AND senha = '$senha'";
-    $stmt->bind_param("ss", $email, $senha);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $quantidade = $result->num_rows;
+    // Prepara a declaração SQL
+    $sql_code = "SELECT * FROM cliente WHERE email = ? AND senha = ?";
+    $stmt = $conn->prepare($sql_code);
 
-    if ($quantidade == 1) {
-      $usuario = $sql_query->fetch_assoc();
+    // Verifica se a preparação da declaração foi bem-sucedida
+    if ($stmt) {
+      // Liga os parâmetros
+      $stmt->bind_param("ss", $email, $senha);
 
-      if (!isset($_SESSION)) {
-        session_start();
+      // Executa a declaração
+      $stmt->execute();
+
+      // Obtém o resultado
+      $result = $stmt->get_result();
+      $quantidade = $result->num_rows;
+
+      if ($quantidade == 1) {
+        $usuario = $result->fetch_assoc();
+
+        // Inicia a sessão
+        if (!isset($_SESSION)) {
+          session_start();
+        }
+
+        // Define as variáveis de sessão
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['nome'] = $usuario['nome'];
+
+        // Redireciona para a página do painel
+        header("Location: ../painel.php");
+        exit(); // Importante para evitar execução de código adicional após o redirecionamento
+      } else {
+        echo "Falha ao logar! E-mail ou senha incorretos";
       }
-      $_SESSION['user'] = $usuario['id'];
-      $_SESSION['nome'] = $usuario['nome'];
 
-      header("Location: ../painel.php");
+      // Fecha a declaração
+      $stmt->close();
     } else {
-      echo "Falha ao logar! E-mail ou senha incorretos";
+      echo "Erro na preparação da declaração SQL";
     }
   }
 }
