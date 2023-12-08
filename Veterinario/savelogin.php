@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ss", $email, $hashed_password);
 
     if ($stmt->execute()) {
-        header("Location: register.html");
+        header("Location: register.php");
     } else {
         echo "Erro: " - $sql . "<br>" . $conn->error;
     }

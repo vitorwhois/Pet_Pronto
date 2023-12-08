@@ -10,6 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/4.9.95/css/materialdesignicons.css" rel="stylesheet">
 <meta name="google-site-verification" content="AJPTi5rjZ0zTw-6RKsx0SsQKygpG7xSAZtrWjuG1Y7c" />
 </head>
 
@@ -43,13 +44,13 @@
             <a href="index.php" class="nav-link">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.php" class="nav-link active" aria-current="page">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.php" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link active" aria-current="page">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.php" class="nav-link ">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
@@ -70,70 +71,94 @@
       </div>
   </nav>
 
-  <main>
-    <section class="my-5 my-md-5 py-lg-5">
-      <div class="container">
-        <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
-          <div class="col-12 col-lg-6 col-xl-5">
-            <img class="img-fluid rounded" loading="lazy" src="./img/aboutus.jpg" alt="About us ecritorio pet friendly">
+  <main class="container">
+    <section>
+      <div>
+        <div class="row my-5 py-4">
+          <div class=" = col-md-6 pe-md-3 pe-lg-5">
+            <img class="img-fluid rounded" src="img/vetwork.jpg" alt="Cachorro" height="672">
           </div>
-          <div class="col-12 col-lg-6 col-xl-7">
-            <div class="row justify-content-xl-center">
-              <div class="col-12 col-xl-11 pt-4">
-                <h2 class="mb-3">Sobre nos</h2>
-                <p class="lead fs-4 text-secondary mb-3">A paixão nos levou até aqui.</p>
-                <p class="mb-5">No PetPronto, somos apaixonados por criar uma experiência única para você e seu pet. Tudo começou com a ideia de proporcionar aos donos uma forma inovadora de cuidar de seus companheiros, integrando tecnologia e carinho.</p>
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center px-3 pt-5 pb-4 p-lg-0 m-lg-0">
+            <h3 class="pt-2">Prontuario smart</h3>
+            <p class="pt-2">Tenha todas as informações do seu pet sempre à mão. Colabore eficientemente com seu veterinário, compartilhando dados cruciais de saúde para um cuidado personalizado e imediatamente acessível.</p>
+          </div>
 
-              </div>
-            </div>
+        </div>
+        <div class="row my-5 py-4 d-flex flex-wrap-reverse">
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center ps-md-3 ps-lg-5">
+            <h3 class="pt-2">Notificações Personalizadas</h3>
+            <p class="pt-2">Fique por dentro das necessidades do seu pet. Receba notificações personalizadas, desde lembretes de consultas até atualizações de saúde, para que você possa cuidar com confiança.</p>
+          </div>
+          <div class="col-md-6 d-flex">
+            <img class="img-fluid rounded" src="img/phoneAlert.jpg" alt="pessoa recebendo alerta no ceular" height="672">
           </div>
         </div>
-        <div class="row gy-4 gy-md-0 gx-xxl-5X mt-sm-5 pt-sm-5 pt-md-4 pt-xxl-5">
-          <div class="col-12 col-md-4">
-            <div class="d-flex">
-              <div class="me-4 text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                  <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-                </svg>
+
+        <div class="row my-5 py-4 ">
+          <div class="col-md-6 ">
+            <img class="img-fluid rounded pe-md-3 pe-lg-5" src="img/lembrete.png" alt="pessoa recebendo alerta no ceular" height="672">
+          </div>
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center">
+            <h3 class="pt-2">Registro de Vacinação e Lembretes</h3>
+            <p class="pt-2">Nunca mais perca uma vacina. Registre o histórico de vacinação do seu pet de forma organizada e receba lembretes automáticos para garantir que seu amigo esteja sempre protegido."</p>
+          </div>
+        </div>
+    </section>
+
+    <div class="pricing8 py-5 mt-lg-5 mb-lg-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center">
+            <h3 class="mb-3">Conheça nossos planos</h3>
+            <h6>Tenha acesso a atualizações regulares, suporte ao cliente e uma plataforma confiável para cuidar do seu pet. Garanta a segurança, saúde e felicidade do seu companheiro com facilidade.</h6>
+          </div>
+        </div>
+        <!-- row  -->
+        <div class="row mt-4">
+          <!-- column  -->
+          <div class="col-md-4 ml-auto pricing-box align-self-center">
+            <div class="card mb-4">
+              <div class="card-body p-4 text-center">
+                <h5 class="font-weight-normal">Plano mensal</h5>
+                <sup>$</sup><span class="text-dark display-5">12,90</span>
+                <h6 class="font-weight-light font-14">Mês</h6>
+                <p class="mt-4">Comece sua jornada de cuidados com seu pet com nosso Plano Mensal. Cancele a qualquer momento, sem compromissos de longo prazo.</p>
               </div>
-              <div>
-                <h2 class="h4 mb-3">Nossa Missão</h2>
-                <p class="text-secondary mb-0">Nossa missão é simplificar a vida dos amantes de pets, fornecendo uma plataforma abrangente para monitorar a saúde, rastrear a localização e garantir o bem-estar dos seus animais de estimação. Queremos que você desfrute de cada momento com seu pet, sabendo que o PetPronto está ao seu lado.</p>
-              </div>
+              <a class="btn btn-info-gradiant p-3 btn-block border-0 text-white" href="#">ESCOLHER </a>
             </div>
           </div>
-          <div class="col-12 col-md-4">
-            <div class="d-flex">
-              <div class="me-4 text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" />
-                  <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z" />
-                </svg>
+          <!-- column  -->
+          <!-- column  -->
+          <div class="col-md-4 ml-auto pricing-box align-self-center">
+            <div class="card mb-4">
+              <div class="card-body p-4 text-center">
+                <h5 class="font-weight-normal">Plano Semestral</h5>
+                <sup>$</sup><span class="text-dark display-5">9,90</span>
+                <h6 class="font-weight-light font-14">Mês</h6>
+                <p class="mt-4">Economize mais com nosso Plano Semestral. Desfrute de todos os benefícios de monitoramento contínuo por seis meses inteiros.</p>
               </div>
-              <div>
-                <h2 class="h4 mb-3">Por que nos escolher?</h2>
-                <p class="text-secondary mb-0">Nos não estamos apenas criando uma plataforma, estamos construindo uma comunidade de amantes de pets comprometidos em oferecer o melhor para seus amigos peludos. Oferecemos funcionalidades inovadoras, descontos exclusivos e, acima de tudo, uma conexão mais forte entre você e seu pet.</p>
-              </div>
+              <a class="btn btn-info-gradiant  p-3 btn-block border-0 text-white" href="#">ESCOLHER </a>
             </div>
           </div>
-          <div class="col-12 col-md-4">
-            <div class="d-flex">
-              <div class="me-4 text-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16">
-                  <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a.998.998 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207Z" />
-                  <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
-                </svg>
+          <!-- column  -->
+          <!-- column  -->
+          <div class="col-md-4 ml-auto pricing-box align-self-center">
+            <div class="card mb-4 pricing-box-premium">
+              <div class="card-body p-4 text-center">
+                <h5 class="font-weight-normal">Plano Anual</h5>
+                <sup>$</sup><span class="text-dark display-5">6,90</span>
+                <h6 class="font-weight-light font-14">Mês</h6>
+                <p class="mt-4">A escolha inteligente para pais de pets comprometidos. Fique tranquilo com um ano inteiro de monitoramento contínuo.
+                </p>
+                <p>Assine agora e ganhe um brinde exclusivo!</p>
               </div>
-              <div>
-                <h2 class="h4 mb-3"> Nossa Equipe</h2>
-                <p class="text-secondary mb-0">Nossa equipe é composta por apaixonados por pets, desde desenvolvedores até especialistas em cuidados com animais. Trabalhamos juntos para garantir que o PetPronto seja mais do que uma plataforma, seja uma extensão do amor que você tem pelo seu pet.</p>
-              </div>
+              <a class="btn btn-info-gradiant p-3 btn-block border-0 text-white" href="#">ESCOLHER</a>
             </div>
           </div>
+          <!-- column  -->
         </div>
       </div>
-
-    </section>
+    </div>
   </main>
 
   <footer class="border-top borda align-items-center align-content-center">

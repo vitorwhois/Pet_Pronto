@@ -39,7 +39,7 @@ if (!isset($_SESSION)) {
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -48,16 +48,16 @@ if (!isset($_SESSION)) {
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
@@ -230,7 +230,7 @@ if (!isset($_SESSION)) {
                   <div class="form-check d-flex justify-content-start mb-4 pb-3">
                     <input class="form-check-input me-3" type="checkbox" value="" id="termos" required />
                     <label class="form-check-label text-white" for="termos">
-                      Eu estou de acordo com os <a href="termos.html" class="text-white"><u>Termos e condições.</u></a>
+                      Eu estou de acordo com os <a href="termos.php" class="text-white"><u>Termos e condições.</u></a>
                     </label>
                   </div>
 

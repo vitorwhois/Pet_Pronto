@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Verificar se a sessão está ativa e se a variável 'id_cliente' está definida
-if (isset($_SESSION['id_cliente'])) {
-  $id_cliente = $_SESSION['id_cliente'];
-} else {
-  // Redirecionar o usuário para a página de login
-  header("Location: login.php");
-  exit();
+// Verifique se 'id_cliente' está definido na sessão
+if (!isset($_SESSION['id_cliente'])) {
+  echo "ID do cliente não está definido na sessão. Conteúdo da sessão:";
+  var_dump($_SESSION);
+  exit();  // Encerre a execução do script
 }
 
 // Obtém o caminho completo para conexao.php
@@ -97,7 +95,7 @@ $foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avata
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link">Inicio</a>
           </li>
           <li class="nav-link">
             <a href="sobre.php" class="nav-link ">Sobre</a>
@@ -111,10 +109,17 @@ $foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avata
         </ul>
         <div>
           <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
-            <li class="nav-item">
-              <a href="logout.php"><button class="btn btn-secondary">Logout</button></a>
-            </li>
-
+            <?php
+            if (isset($_SESSION['id_cliente'])) {
+              // Usuário está logado
+              echo '<li class="nav-item"><a href="perfilusuario.php" class="btn btn-primary">Perfil</a></li>';
+              echo '<li class="nav-item"><a href="logout.php" class="btn btn-secondary">Logout</a></li>';
+            } else {
+              // Usuário está deslogado
+              echo '<li class="nav-item"><a href="login.php" class="btn btn-secondary">Login</a></li>';
+              echo '<li class="nav-item"><a href="signup.php" class="btn btn-primary">Cadastrar</a></li>';
+            }
+            ?>
           </ul>
         </div>
       </div>

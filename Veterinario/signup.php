@@ -42,7 +42,7 @@ include('conexao.php');
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -51,16 +51,16 @@ include('conexao.php');
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
@@ -69,7 +69,7 @@ include('conexao.php');
               <button class="btn btn-secondary">Login</button>
             </li>
             <li class="nav-item">
-              <a href="register.html" class="btn btn-primary">Cadastrar</a>
+              <a href="register.php" class="btn btn-primary">Cadastrar</a>
             </li>
           </ul>
         </div>
@@ -123,9 +123,9 @@ include('conexao.php');
 
 
                     <div class="d-flex justify-content-between">
-                      <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
+                      <a href="index.php" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
-                        <a href=" savelogin.html">
+                        <a href=" savelogin.php">
                         <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
                       </a>
                     </div>

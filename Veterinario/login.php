@@ -26,7 +26,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
       $_SESSION['user'] = $usuario['id'];
       $_SESSION['nome'] = $usuario['nome'];
 
-      header("Location: index.html");
+      header("Location: index.php");
     } else {
       echo "Falha ao logar! E-mail ou senha incorretos";
     }
@@ -72,7 +72,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -81,16 +81,16 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
@@ -99,7 +99,7 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
               <button class="btn btn-secondary">Login</button>
             </li>
             <li class="nav-item">
-              <a href="register.html" class="btn btn-primary">Cadastrar</a>
+              <a href="register.php" class="btn btn-primary">Cadastrar</a>
             </li>
           </ul>
         </div>
@@ -132,8 +132,8 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
                       </div>
                     </div>
                     <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
-                    <p>Cliente novo? <a class="text-primary" href="register.html">Cadastre-se aqui.</a></p>
-                    <p>Esqueceu a senha? <a class="text-primary" href="register.html">Recuperar senha.</a></p>
+                    <p>Cliente novo? <a class="text-primary" href="register.php">Cadastre-se aqui.</a></p>
+                    <p>Esqueceu a senha? <a class="text-primary" href="register.php">Recuperar senha.</a></p>
 
                     <!--
                           //Salvar informacoes do user para BD                         
@@ -148,9 +148,9 @@ if (isset($_POST['email']) || isset($_POST['senha'])) {
 
 
                     <div class="d-flex justify-content-between">
-                      <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
+                      <a href="index.php" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
-                        <a href=" registerperfil.html">
+                        <a href=" registerperfil.php">
                         <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
                       </a>
                     </div>

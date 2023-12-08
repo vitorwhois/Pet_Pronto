@@ -51,7 +51,7 @@ include('conexao.php');
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link">Inicio</a>
           </li>
           <li class="nav-link">
             <a href="sobre.php" class="nav-link ">Sobre</a>
@@ -65,12 +65,17 @@ include('conexao.php');
         </ul>
         <div>
           <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
-            <li class="nav-item">
-              <a href="login.php" class="btn btn-secondary">Login</a>
-            </li>
-            <li class="nav-item">
-              <a href="signup.php" class="btn btn-primary">Cadastrar</a>
-            </li>
+            <?php
+            if (isset($_SESSION['id_cliente'])) {
+              // Usuário está logado
+              echo '<li class="nav-item"><a href="perfilusuario.php" class="btn btn-primary">Perfil</a></li>';
+              echo '<li class="nav-item"><a href="logout.php" class="btn btn-secondary">Logout</a></li>';
+            } else {
+              // Usuário está deslogado
+              echo '<li class="nav-item"><a href="login.php" class="btn btn-secondary">Login</a></li>';
+              echo '<li class="nav-item"><a href="signup.php" class="btn btn-primary">Cadastrar</a></li>';
+            }
+            ?>
           </ul>
         </div>
       </div>

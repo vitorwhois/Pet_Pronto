@@ -3,39 +3,38 @@ session_start();
 include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obter dados do formulário
-    $usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
-    $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+  // Obter dados do formulário
+  $usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
+  $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-    $sql = "SELECT tab_veterinario_idtab_veterinario FROM tab_loginvet WHERE usuario_vet = '$usuario' AND senha = '$senha'";
+  $sql = "SELECT tab_veterinario_idtab_veterinario FROM tab_loginvet WHERE usuario_vet = '$usuario' AND senha = '$senha'";
 
-    $result = mysqli_query($conexao, $sql); // Alterei de $query para $sql
+  $result = mysqli_query($conexao, $sql); // Alterei de $query para $sql
 
-    if (!$result) {
-        die("Erro na consulta: " . mysqli_error($conexao));
-    }
+  if (!$result) {
+    die("Erro na consulta: " . mysqli_error($conexao));
+  }
 
-    $row = mysqli_num_rows($result);
+  $row = mysqli_num_rows($result);
 
-    if ($row == 1) {
-        // Obter o ID do veterinário da consulta
-        $dados_veterinario = mysqli_fetch_assoc($result);
-    
-        // Adicione este trecho para verificar os resultados
-        echo "Dados do Veterinário:";
-        print_r($dados_veterinario);
-    
-        $id_veterinario = $dados_veterinario['tab_veterinario_idtab_veterinario'];
-    
-        // Armazenar o ID do veterinário na sessão
-        $_SESSION['id_veterinario'] = $id_veterinario;
-    
-        // Restante do seu código de redirecionamento
-        $_SESSION['usuario'] = $usuario;
-        header('Location: veterinario.php');
-        exit();
-    }
-    
+  if ($row == 1) {
+    // Obter o ID do veterinário da consulta
+    $dados_veterinario = mysqli_fetch_assoc($result);
+
+    // Adicione este trecho para verificar os resultados
+    echo "Dados do Veterinário:";
+    print_r($dados_veterinario);
+
+    $id_veterinario = $dados_veterinario['tab_veterinario_idtab_veterinario'];
+
+    // Armazenar o ID do veterinário na sessão
+    $_SESSION['id_veterinario'] = $id_veterinario;
+
+    // Restante do seu código de redirecionamento
+    $_SESSION['usuario'] = $usuario;
+    header('Location: veterinario.php');
+    exit();
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -75,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -84,16 +83,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
@@ -102,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <button class="btn btn-secondary">Login</button>
             </li>
             <li class="nav-item">
-              <a href="register.html" class="btn btn-primary">Cadastrar</a>
+              <a href="register.php" class="btn btn-primary">Cadastrar</a>
             </li>
           </ul>
         </div>
@@ -123,34 +122,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="mb-4 pb-2">
 
                       <div class="form-outline">
-                      <input type="text" name="usuario" class="form-control form-control-lg" required />
-                <label class="form-label" for="usuario">Usuário</label>
-                    </div>
+                        <input type="text" name="usuario" class="form-control form-control-lg" required />
+                        <label class="form-label" for="usuario">Usuário</label>
+                      </div>
 
-                    <div class="mb-4 pb-2">
-                      <div class="form-outline">
-                      <input type="password" name="senha" class="form-control form-control-lg" minlength="" required />
-            <label class="form-label" for="senha">Senha</label>
+                      <div class="mb-4 pb-2">
+                        <div class="form-outline">
+                          <input type="password" name="senha" class="form-control form-control-lg" minlength="" required />
+                          <label class="form-label" for="senha">Senha</label>
+                        </div>
+                      </div>
+                      <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
+                      <p>Cliente novo? <a class="text-primary" href="register.php">Cadastre-se aqui.</a></p>
+                      <p>Esqueceu a senha? <a class="text-primary" href="register.php">Recuperar senha.</a></p>
+
+                      <div class="d-flex justify-content-between">
+                        <a href="index.php" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
+
+                        <a href=" registerperfil.php">
+                          <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
+                        </a>
                       </div>
                     </div>
-                    <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
-                    <p>Cliente novo? <a class="text-primary" href="register.html">Cadastre-se aqui.</a></p>
-                    <p>Esqueceu a senha? <a class="text-primary" href="register.html">Recuperar senha.</a></p>
-
-                    <div class="d-flex justify-content-between">
-                      <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
-
-                        <a href=" registerperfil.html">
-                        <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
-                      </a>
-                    </div>
                   </div>
-                </div>
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
     </section>
 
   </form>
