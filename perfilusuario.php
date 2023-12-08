@@ -44,6 +44,9 @@ if ($cliente) {
   header("Location: login.php");
   exit();
 }
+
+$foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avatar-padrao.png';
+
 ?>
 
 
@@ -120,11 +123,11 @@ if ($cliente) {
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                  <img src="<?php echo $cliente['foto']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                   <h5 class="my-3"><?php echo $cliente['nome']; ?></h5>
 
                   <div class="d-flex justify-content-center mb-2 mt-2">
-                    <button type="button" class="btn btn-secondary ms-1">Alterar</button>
+                    <a href="altregister.php"><button type="button" class="btn btn-secondary ms-1">Alterar</button></a>
                   </div>
                 </div>
               </div>
