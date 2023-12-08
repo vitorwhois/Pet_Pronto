@@ -1,9 +1,52 @@
-Bem vindo ao Painel,
 <?php
-if (!isset($_SESSION)) {
-  session_start();
+session_start();
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['id_cliente'])) {
+  header("Location: login.php");
+  exit();
 }
-echo $_SESSION['nome']; ?>
+
+// Obtém o caminho completo para conexao.php
+include __DIR__ . "/conexao.php";
+
+// Pega o id_cliente da sessão
+$id_cliente = $_SESSION['id_cliente'];
+
+// Prepara e executa a consulta SQL
+$sql = "SELECT * FROM cliente WHERE id_cliente = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id_cliente);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Obtém os dados do cliente
+$cliente = $result->fetch_assoc();
+
+// Fecha a declaração
+$stmt->close();
+
+// Verifica se a consulta retornou dados
+if ($cliente) {
+  // Obter os dados de login associados a este cliente
+  $sqlLogin = "SELECT * FROM login WHERE id_cliente = ?";
+  $stmtLogin = $conn->prepare($sqlLogin);
+  $stmtLogin->bind_param("i", $id_cliente);
+  $stmtLogin->execute();
+  $resultLogin = $stmtLogin->get_result();
+
+  // Obtém os dados de login
+  $login = $resultLogin->fetch_assoc();
+
+  // Fecha a declaração
+  $stmtLogin->close();
+} else {
+  // Se o cliente não for encontrado, redirecionar
+  header("Location: login.php");
+  exit();
+}
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -36,7 +79,7 @@ echo $_SESSION['nome']; ?>
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -45,22 +88,22 @@ echo $_SESSION['nome']; ?>
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
           <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
             <li class="nav-item">
-              <a href="login.html"><button class="btn btn-secondary">Logout</button></a>
+              <a href="index.php"><button class="btn btn-secondary">Logout</button></a>
             </li>
 
           </ul>
@@ -78,10 +121,9 @@ echo $_SESSION['nome']; ?>
               <div class="card mb-4">
                 <div class="card-body text-center">
                   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                  <h5 class="my-3">Luis Mel</h5>
-                  <p class="text-muted mb-1">ID</p>
-                  <p class="text-muted mb-4">São Paulo - SP</p>
-                  <div class="d-flex justify-content-center mb-2">
+                  <h5 class="my-3"><?php echo $cliente['nome']; ?></h5>
+
+                  <div class="d-flex justify-content-center mb-2 mt-2">
                     <button type="button" class="btn btn-secondary ms-1">Alterar</button>
                   </div>
                 </div>
@@ -124,10 +166,10 @@ echo $_SESSION['nome']; ?>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Nome completo</p>
+                      <p class="mb-0">Nome</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Luis Mel</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['nome'] . ' ' . $cliente['sobrenome']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -136,7 +178,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Cpf</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">123.456.789-10</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['cpf']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -145,7 +187,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">luisamel@example.com</p>
+                      <p class="text-muted mb-0"><?php echo $login['email']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -154,16 +196,16 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Telefone</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">(11) 99090-8080</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['telefone']; ?></p>
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <p class="mb-0">Cel</p>
+                      <p class="mb-0">Cep</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">0765-4321</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['cep']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -172,7 +214,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Endereço</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Avenida paulista</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['logradouro']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -181,7 +223,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Numero</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">1000</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['numero']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -190,7 +232,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Complemento</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">Ap 01</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['complemento']; ?></p>
                     </div>
                   </div>
                   <hr>
@@ -199,7 +241,7 @@ echo $_SESSION['nome']; ?>
                       <p class="mb-0">Cidade</p>
                     </div>
                     <div class="col-sm-9">
-                      <p class="text-muted mb-0">São Paulo</p>
+                      <p class="text-muted mb-0"><?php echo $cliente['cidade']; ?></p>
                     </div>
                   </div>
                   <hr>
