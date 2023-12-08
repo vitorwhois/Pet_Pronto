@@ -4,7 +4,7 @@ session_start();
 
 $usuario = 'root';
 $senha = '';
-$database = 'petpronto';
+$database = 'petpronto01';
 $hostname = 'localhost';
 
 $conn = new mysqli($hostname, $usuario, $senha, $database);

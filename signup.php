@@ -1,8 +1,6 @@
-
 <?php
-session_start();
-include('../conexao.php');
 
+include('conexao.php');
 ?>
 
 
@@ -44,7 +42,7 @@ include('../conexao.php');
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -53,31 +51,31 @@ include('../conexao.php');
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
-            <a href="sobre.html" class="nav-link ">Sobre</a>
+            <a href="sobre.php" class="nav-link ">Sobre</a>
           </li>
           <li class="nav-link">
-            <a href="planos.html" class="nav-link">Planos</a>
+            <a href="planos.php" class="nav-link">Planos</a>
           </li>
           <li class="nav-link">
-            <a href="contato.html" class="nav-link">Contato</a>
+            <a href="contato.php" class="nav-link">Contato</a>
           </li>
         </ul>
         <div>
           <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
             <li class="nav-item">
-              <a href="login.html" class="btn btn-secondary">Login</a>
+              <a href="login.php" class="btn btn-secondary">Login</a>
             </li>
             <li class="nav-item">
-              <a href="signup.html" class="btn btn-primary">Cadastrar</a>
+              <a href="signup.php" class="btn btn-primary">Cadastrar</a>
             </li>
           </ul>
         </div>
       </div>
   </nav>
-  <form action="php/savelogin.php" method="post" >
+  <form action="php/savelogin.php" method="post">
 
     <section class="h-100 gradient-custom-2" id="register-container">
       <div class="container py-5 h-90">
@@ -105,7 +103,7 @@ include('../conexao.php');
                     </div>
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()"/>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                         <label class="form-label" for="passwordConf">Confirme a senha</label>
                       </div>
                     </div>
@@ -125,10 +123,10 @@ include('../conexao.php');
 
 
                     <div class="d-flex justify-content-between">
-                      <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
+                      <a href="index.php" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
 
-                        <button type="submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 " onclick="checkInputPassword()">Cadastrar</button>
+                        <button type=" submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 " onclick="checkInputPassword()">Cadastrar</button>
 
                     </div>
                   </div>
@@ -146,15 +144,15 @@ include('../conexao.php');
       <p class="col-md-4 mb-0 text-mute">Copyright © 2023 Pet Pronto</p>
 
 
-    <ul class="nav col-md-4 justify-content-center">       
-      <li class="nav-link"><a href="https://github.com/vitorwhois/Pet_Pronto">Projeto em construção <i class="bi bi-github"></i></a></li>
+      <ul class="nav col-md-4 justify-content-center">
+        <li class="nav-link"><a href="https://github.com/vitorwhois/Pet_Pronto">Projeto em construção <i class="bi bi-github"></i></a></li>
       </ul>
-    <ul class="nav col justify-content-center justify-content-md-end" id="FooterSocial">
-      <li ><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Facebook.png" alt=""></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Instagram.png" alt=""></svg></a></li>
-      <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Twitter.png" alt=""></svg></a></li>
-    </ul>
-   </div>
+      <ul class="nav col justify-content-center justify-content-md-end" id="FooterSocial">
+        <li><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Facebook.png" alt=""></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Instagram.png" alt=""></svg></a></li>
+        <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Twitter.png" alt=""></svg></a></li>
+      </ul>
+    </div>
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="js/script.js"></script>

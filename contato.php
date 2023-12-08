@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -43,7 +43,7 @@
     <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
             <li class="nav-link">
-                <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+                <a href="index.html" class="nav-link">Inicio</a>
             </li>
             <li class="nav-link">
                 <a href="sobre.html" class="nav-link ">Sobre</a>
@@ -52,13 +52,13 @@
                 <a href="planos.html" class="nav-link">Planos</a>
             </li>
             <li class="nav-link">
-                <a href="contato.html" class="nav-link">Contato</a>
+                <a href="contato.html" class="nav-link active" aria-current="page">Contato</a>
             </li>
         </ul>
     <div>
         <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
             <li class="nav-item">
-                <a href="login.php"><button class="btn btn-secondary">Login</button></a>
+                <a href="login.html"><button class="btn btn-secondary">Login</button></a>
             </li>
             <li class="nav-item">
                 <a href="signup.html" class="btn btn-primary">Cadastrar</a>
@@ -67,52 +67,72 @@
     </div>        
     </div> 
 </nav>
-
-<main>
-    <section class="hero">
-    <div class="container">
+    <div class="container mt-5 contact">
         <div class="row ">
-            <div class="col-md-6 d-flex flex-column align-content-center justify-content-center px-3 pt-5 pb-4 p-lg-0 m-lg-0">
-                <h1 class="pt-2">Transforme o Cuidado com Seu Pet em uma Experiência Inteligente</h1>
-                <p class="pt-2">Descubra uma maneira inovadora de garantir a segurança, saúde e felicidade do seu companheiro.
-                    Com a nossa plataforma você estará sempre conectado ao seu animal de estimação, tenha o histórico de saúde do seu pet à mão, onde quer que esteja.</p>
-                    <ul class="d-flex gap-3 p-0 pt-2">
-                        <li><a href="signup.html" class="btn btn-primary">Cadastrar</a></li>
-                        <li><a href="sobre.html" class= "btn btn-secondary flex-nowrap">Saiba mais</a></li>
-                    </ul>
+            <div class="col-md-6 pt-5 mt-4">
+                <div class="well d-flex justify-content-center">
+                    <form class="form-horizontal col-10 ms-md-5 " method="post">
+                        <legend class="text-center header">Contate-nos</legend>
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input id="fname" name="name" type="text" placeholder="Nome" class="form-control">
+                            </div>
+                        </div>
+                        <div class=" ml-5 form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input id="lname" name="name" type="text" placeholder="Sobrenome" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <input id="phone" name="phone" type="text" placeholder="Telefone" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                                <textarea class="form-control " style="width: 100%;" id="message" name="message"
+                                    placeholder="Digite sua mensagem aqui" rows="7"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="col-md-6 d-flex"><img class="img-fluid" src="img/petPrincipal.png" alt="Cachorro" height="672"></div>
+            <div class="col-md-6 mt-4 pt-3">
+                <div class="panel panel-default">
+                    <div class="text-center header"></div>
+                    <div class="panel-body text-center">
+                        <ul class="d-flex justify-content-around">
+                            <li class=" d-flex align-items-center  text-center"><h4>Endereço:</h4></li>
+                            <li class="li"><p>                            
+                                R. Pedro Rissato, 30<br />
+                                Osasco - SP<br />
+                                (11) 0800 555 555<br /> 
+                                petpronto@pronto.com.br<br />
+                            </p></li>
+                        </ul>
+                        <hr />
+                        <div id="map1" class="map">
+                            <iframe style="border:0; width: 100%; height: 100%;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14633.107485835559!2d-46.7582018!3d-23.5225422!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ceff250e441ef9%3A0x88dae4d491bc1ac7!2sFaculdade%20de%20Tecnologia%20Prefeito%20Hirant%20Sanazar%20(Fatec%20Osasco)!5e0!3m2!1spt-BR!2sbr!4v1699645954532!5m2!1spt-BR!2sbr" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    </section>
-
-    <section class="mb-5 pb-5">
-    <div class="container solucoes">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-sm-center px-3 pt-5 pb-4  mt-4">
-                <h2>Conheça nossas principais soluções</h2>
-            </div>
-            <div class=" col-md-4 pt-4 pb-4 px-3">
-                <h3 class="pt-2 pb-xxl-4">Rastreamento em tempo real</h3>
-                <p class="pt-2 pb-xxl-2">"Mantenha-se tranquilo enquanto rastreamos a localização do seu pet em tempo real. Esteja sempre conectado e saiba onde seu companheiro peludo está, oferecendo segurança total em aventuras ao ar livre."</p>
-                <img class="img-fluid pt-2" src="img/Image (Replace).png" alt="">
-            </div>
-            <div class=" col-md-4 pt-4 pb-4 px-3">
-                <h3 class="pt-2">Gerenciamento de Saúde Simplificado</h3>
-                <p class="pt-2">Cuide da saúde do seu pet facilmente. Registre vacinas, consultas veterinárias e medicamentos de forma organizada. Mantenha um histórico de saúde completo para garantir sempre os melhores cuidados.</p>
-                <img class="img-fluid pt-2" src="img/Image (Replace)(1).png" alt="">
-            </div>
-            <div class=" col-md-4 pt-4 pb-4 px-3">
-                <h3 class="pt-2">Alertas e Notificações Personalizada</h3>
-                <p class="pt-2">Receba alertas e notificações personalizadas em tempo real. De lembretes de consultas veterinárias a datas de vacinação, nossa plataforma mantém você informado e seu pet em dia com os cuidados necessários.</p>
-                <img class="img-fluid pt-2" src="img//Image (Replace)3.png" alt="">
-            </div>
-
-        </div>
-    </div>
-        
-    </section>
-</main>
 
 <footer class="border-top borda align-items-center align-content-center">
     <div class="container d-flex justify-content-between flex-wrap my-4 py-sm-3 my-sm-4 align-items-center align-content-center" id="footerCell">
@@ -129,7 +149,5 @@
     </ul>
    </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
 </body>
 </html>

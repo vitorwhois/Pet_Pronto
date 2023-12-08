@@ -13,13 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-    $sql = "INSERT INTO cliente (email, senha) VALUES (?, ?)";
-
+    $sql = "INSERT INTO login (email, senha) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ss", $email, $hashed_password);
 
     if ($stmt->execute()) {
-        header("Location: ../register.html");
+        $id_cliente = $conn->insert_id;
+        $_SESSION['id_cliente'] = $id_cliente;
+
+        header("Location: ../register.php");
     } else {
         echo "Erro: " - $sql . "<br>" . $conn->error;
     }

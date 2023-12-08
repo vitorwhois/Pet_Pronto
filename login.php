@@ -40,7 +40,7 @@ include('php/logar.php');
   <nav class="navbar navbar-expand-lg border-bottom borda sticky-top" id="navbar">
 
     <div class="container py-3 text-center">
-      <a href="index.html"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
+      <a href="index.php"><img class="navbar-brand" src="img/Logo.png" alt="logo" width="70px"></a>
 
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-items" aria-controls="navbar-items" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ include('php/logar.php');
       <div class="collapse navbar-collapse" id="navbar-items">
         <ul class="navbar-nav mb-2 mb-lg-0 py-2 ">
           <li class="nav-link">
-            <a href="index.html" class="nav-link active" aria-current="page">Inicio</a>
+            <a href="index.php" class="nav-link active" aria-current="page">Inicio</a>
           </li>
           <li class="nav-link">
             <a href="sobre.html" class="nav-link ">Sobre</a>
@@ -67,7 +67,7 @@ include('php/logar.php');
               <button class="btn btn-secondary">Login</button>
             </li>
             <li class="nav-item">
-              <a href="signup.html" class="btn btn-primary">Cadastrar</a>
+              <a href="signup.php" class="btn btn-primary">Cadastrar</a>
             </li>
           </ul>
         </div>
@@ -95,13 +95,13 @@ include('php/logar.php');
 
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="senha" name="senha" id="passwordInput" class="form-control form-control-lg" minlength="6" required />
+                        <input type="password" name="senha" id="senha" class="form-control form-control-lg" minlength="6" required />
                         <label class="form-label" for="senha">Senha</label>
                       </div>
                     </div>
                     <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
-                    <p>Cliente novo? <a class="text-primary" href="signup.html">Cadastre-se aqui.</a></p>
-                    <p>Esqueceu a senha? <a class="text-primary" href="signup.html">Recuperar senha.</a></p>
+                    <p>Cliente novo? <a class="text-primary" href="signup.php">Cadastre-se aqui.</a></p>
+                    <p>Esqueceu a senha? <a class="text-primary" href="signup.php">Recuperar senha.</a></p>
 
                     <!--
                           //Salvar informacoes do user para BD                         
@@ -116,7 +116,7 @@ include('php/logar.php');
 
 
                     <div class="d-flex justify-content-between">
-                      <a href="index.html" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
+                      <a href="index.php" class="btn btn-secondary btn-lg align-content-end mt-4 mt-lg-5 onclick=" voltar()" ">Cancelar</a>
 
                         
                         <button type=" submit" class="btn btn-primary btn-lg mt-4 mt-lg-5 ">Login</button>
