@@ -1,7 +1,11 @@
 <?php
 session_start();
-// Verifica se o usuário está autenticado
-if (!isset($_SESSION['id_cliente'])) {
+
+// Verificar se a sessão está ativa e se a variável 'id_cliente' está definida
+if (isset($_SESSION['id_cliente'])) {
+  $id_cliente = $_SESSION['id_cliente'];
+} else {
+  // Redirecionar o usuário para a página de login
   header("Location: login.php");
   exit();
 }
@@ -42,9 +46,11 @@ if ($cliente) {
 } else {
   // Se o cliente não for encontrado, redirecionar
   header("Location: login.php");
+  echo "cliente nao econtrado";
   exit();
 }
 
+// Define a foto padrao do cliente
 $foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avatar-padrao.png';
 
 ?>
@@ -106,7 +112,7 @@ $foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avata
         <div>
           <ul class="navbar-nav d-flex justify-content-end gap-3 text-center py-2 sandwichButton">
             <li class="nav-item">
-              <a href="index.php"><button class="btn btn-secondary">Logout</button></a>
+              <a href="logout.php"><button class="btn btn-secondary">Logout</button></a>
             </li>
 
           </ul>
@@ -123,7 +129,7 @@ $foto_cliente = !empty($cliente['foto']) ? $cliente['foto'] : 'img/cliente/avata
             <div class="col-lg-4">
               <div class="card mb-4">
                 <div class="card-body text-center">
-                  <img src="<?php echo $cliente['foto']; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                  <img src="<?php echo $foto_cliente; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                   <h5 class="my-3"><?php echo $cliente['nome']; ?></h5>
 
                   <div class="d-flex justify-content-center mb-2 mt-2">

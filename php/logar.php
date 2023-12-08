@@ -2,13 +2,8 @@
 include __DIR__ . "/../conexao.php";
 
 if (isset($_POST['email']) && isset($_POST['senha'])) {
-  echo "Formulário de Login Recebido<br>";
-
   $email = $conn->real_escape_string($_POST['email']);
   $senha = $conn->real_escape_string($_POST['senha']);
-
-  echo "E-mail: $email<br>";
-  echo "Senha: $senha<br>";
 
   $sql_code = "SELECT * FROM login WHERE email = ?";
   $stmt = $conn->prepare($sql_code);
@@ -21,24 +16,28 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
 
     if ($quantidade == 1) {
       $usuario = $result->fetch_assoc();
+      $_SESSION['id_cliente'] = $usuario['id_cliente'];
+      $_SESSION['email'] = $usuario['email'];
 
       // Verifique a senha usando password_verify
       if (password_verify($senha, $usuario['senha'])) {
-        session_start();
         $_SESSION['email'] = $usuario['email'];
-        $_SESSION['nome'] = $usuario['nome'];
+        //  $_SESSION['nome'] = $usuario['nome'];
 
         header("Location: ../perfilusuario.php");
         exit();
       } else {
-        echo "Falha ao logar! Senha incorreta";
+        header("Location: ../login.php?erro=senha-incorreta");
+        exit();
       }
     } else {
-      echo "Falha ao logar! E-mail não encontrado";
+      header("Location: ../login.php?erro=email-nao-encontrado");
+      exit();
     }
 
     $stmt->close();
   } else {
-    echo "Erro na preparação da declaração SQL";
+    header("Location: ../login.php?erro=preparacao-sql");
+    exit();
   }
 }
