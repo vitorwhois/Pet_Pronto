@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+
+}
+
+:root{
+    --cor-primary: #029182;
+    --cor-secundary: #FBEAE4;
+    --cor-pinksandy:#F1D5CA;
+    --cor-darkest:#17323B;
+    --cor-borda:#F1F3F7;
+}
+
+.nav-link{
+    color: var(--cor-darkest);
+}
+body {
+    color: var(--cor-darkest);
+}
+a {
+    text-decoration: none;
+    color: var(--cor-darkest);
+}
+a:hover {
+    color: var(--cor-primary);
+}
+
+/*arrumar o footer invadindo o main */
+footer .footer{
+    height: 130px;
+    margin: 0 !important;
+    background-color: white;
+}
+.navbar-nav {
+    background-color: white;
+}
+
+#navbar {
+    border-bottom: 1px var(--cor-borda);
+    background-color: white;
+}
+
+#navbar a:hover {
+    color: var(--cor-primary);
+}
+#navbar a.active {
+   color: var(--cor-primary);
+}
+
+#navbar-items .navbar-nav{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.nav-link {
+    background-color: white;
+
+}
+
+.borda {
+    border-color: var(--cor-borda);
+}
+
+ul, li {
+    text-decoration: none;
+    list-style: none;
+}
+.hero {
+    background-color: var(--cor-pinksandy);
+}
+
+.solucoes{
+    min-height: 780px;
+}
+
+.bg-secondary {
+    background-color: var(--cor-secundary) !important;
+}
+
+.btn-primary {
+    background-color:var(--cor-primary);
+    border-color: var(--cor-primary);
+}
+.btn-primary:hover{
+    background-color: var(--cor-pinksandy);
+    border-color: white;
+    color: white !important;
+}
+.btn-secondary {
+    background-color: white;
+    color: var(--cor-darkest);
+    border-color: var(--cor-primary);
+}
+.btn-secondary:hover{
+    background-color: var(--cor-pinksandy);
+    border-color: white;
+}
+
+@media (max-width: 768px) {
+
+    .navbar{
+        height: 100px;
+    }
+    .footer {
+        text-align: center;
+    }
+    
+    .footer ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer li {
+        list-style: none;
+        margin-bottom: 1px;
+    }
+    #footerCell {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #FooterSocial {
+        justify-content: center;
+    }
+
+    .sandwichButton {
+        margin-top: -8px;
+    }
+}
+
+/*Register */
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+    }
+    .card-registration .select-arrow {
+    top: 13px;
+    }
+    
+    .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #029182;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #029182, rgba(194, 233, 251, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #029182, rgba(194, 233, 251, 1))
+    }
+    
+    .bg-indigo {
+    background-color: var(--cor-darkest);
+    }
+
+    /* Message */
+    #fade {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    
+    #fade .spinner-border {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .hide {
+        display: none !important;
+    }
+    
+    #message {
+        width: 40%;
+    }
+    
+    .alert.alert-light p {
+        border-bottom: 1px solid #333;
+        padding: 1.2em 0;
+    }
+  
+    @media (min-width: 992px) {
+    .card-registration-2 .bg-indigo {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+    @media (max-width: 991px) {
+    .card-registration-2 .bg-indigo {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    }
+    }
+
+    /*register */
+
+    
+  /*perfil vet */
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #029182
+    }
+    
+    .profile-button {
+        background: #029182;
+        box-shadow: none;
+        border: none
+    }
+    
+    .profile-button:hover {
+        background: #029182
+    }
+    
+    .profile-button:focus {
+        background: #029182;
+        box-shadow: none
+    }
+    
+    .profile-button:active {
+        background: #029182;
+        box-shadow: none
+    }
+    
+    .back:hover {
+        color: #029182;
+        cursor: pointer
+    }
+    
+    .labels {
+        font-size: 11px
+    }
+    
+    .add-experience:hover {
+        background: #029182;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #029182
+    }
+
+  /*cards vet */
+      
+      .card {
+        border: 1px solid #029182;
+        color: rgba(0, 0, 0, 0.8);
+        margin-bottom: 2rem;
+      }
+
+      .card-block {
+        text-align: center;
+      }
+
+      .margimbotaocard{
+margin-bottom: 4px;
+      }
+
+      .rosa{
+        background-color: #F1D5CA;
+      }
+      .verde{
+        background-color: #029182;
+      }
+
+
+    .well {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+
+    }
+
+    .map {
+        height: 328px; 
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .panel-default {
+        border: none;
+        box-shadow: none;
+    }
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #F1D5CA; /* Cor de fundo do footer */
+        padding: 10px; /* Espaçamento interno do footer */
+    }
