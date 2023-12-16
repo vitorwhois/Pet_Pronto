@@ -15,10 +15,10 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
 
-$usuario = $_ENV['USUARIO'];
-$senha = $_ENV['SENHA'];
-$database = $_ENV['DATABASE'];
-$hostname = $_ENV['HOSTNAME'];
+$usuario = $_ENV['DB_USER'];
+$senha = $_ENV['DB_PASSWORD'];
+$database = $_ENV['DB_DATABASE'];
+$hostname = $_ENV['DB_HOSTNAME'];
 
 // Conecta ao banco de dados
 $conn = new mysqli($hostname, $usuario, $senha, $database);
