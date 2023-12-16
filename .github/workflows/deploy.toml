@@ -34,6 +34,7 @@ jobs:
           # Comandos adicionais para realizar o deploy no Railway
 
         env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
           DB_USER: ${{ secrets.DB_USER }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           DB_DATABASE: ${{ secrets.DB_DATABASE }}
