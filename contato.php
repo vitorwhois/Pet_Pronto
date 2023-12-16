@@ -83,23 +83,20 @@ if (session_status() == PHP_SESSION_NONE) {
                                 <div class="row no-gutters">
                                     <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
                                         <div class="contact-wrap w-100 p-md-5 p-4">
-                                            <h3 class="mb-4">Get in touch</h3>
+                                            <h3 class="mb-4">Contato</h3>
                                             <div id="form-message-warning" class="mb-4"></div>
-                                            <div id="form-message-success" class="mb-4">
-                                                Your message was sent, thank you!
-                                            </div>
                                             <form method="POST" id="contactForm" name="contactForm" class="contactForm" novalidate="novalidate" abineguid="10941FD2945441118671DB046F8B7BE6">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label class="label" for="name">Full Name</label>
-                                                            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                                            <label class="label" for="name">Nome Completo</label>
+                                                            <input type="text" class="form-control mb-4" name="name" id="name">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label class="label" for="email">Email Address</label>
-                                                            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                                        <div class="form-group mb-4">
+                                                            <label class="label" for="email">Email</label>
+                                                            <input type="email" class="form-control" name="email" id="email">
                                                             <div id="pwm-inline-icon-78659" class="pwm-field-icon" style="position: absolute !important; width: 18px !important; height: 18px !important; min-height: 0px !important; min-width: 0px !important; z-index: 2147483645 !important; box-shadow: none !important; box-sizing: content-box !important; background: none !important; border: none !important; padding: 0px !important; cursor: pointer !important; outline: none !important; margin-top: -27px; margin-left: 286px;"><svg style="display: inline-block !important; width: 16px !important; height: 16px !important; fill: rgb(230, 0, 23) !important; margin-top: 0.5px !important; position: absolute !important; top: 0px !important; left: 0px !important;" viewBox="0 0 40 64">
                                                                     <g>
                                                                         <path d="m20,28.12a33.78,33.78 0 0 1 13.36,2.74a22.18,22.18 0 0 1 0.64,5.32c0,9.43 -5.66,17.81 -14,20.94c-8.34,-3.13 -14,-11.51 -14,-20.94a22.2,22.2 0 0 1 0.64,-5.32a33.78,33.78 0 0 1 13.36,-2.74m0,-28.12c-8.82,0 -14,7.36 -14,16.41l0,5.16c2,-1.2 2,-1.49 5,-2.08l0,-3.08c0,-6.21 2.9,-11.41 8.81,-11.41l0.19,0c6.6,0 9,4.77 9,11.41l0,3.08c3,0.58 3,0.88 5,2.08l0,-5.16c0,-9 -5.18,-16.41 -14,-16.41l0,0zm0,22c-6.39,0 -12.77,0.67 -18.47,4a31.6,31.6 0 0 0 -1.53,9.74c0,13.64 8.52,25 20,28.26c11.48,-3.27 20,-14.63 20,-28.26a31.66,31.66 0 0 0 -1.54,-9.77c-5.69,-3.3 -12.08,-4 -18.47,-4l0,0l0.01,0.03z"></path>
@@ -110,19 +107,19 @@ if (session_status() == PHP_SESSION_NONE) {
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label class="label" for="subject">Subject</label>
-                                                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                                            <label class="label" for="subject">Assunto</label>
+                                                            <input type="text" class="form-control mb-4" name="subject" id="subject">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label class="label" for="#">Message</label>
-                                                            <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+                                                            <label class="label" for="#">Mensagem</label>
+                                                            <textarea name="message" class="form-control mb-4" id="message" cols="40" rows="6"></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <input type="submit" value="Send Message" class="btn btn-primary">
+                                                            <input type="submit" value="Enviar Mensagem" class="btn btn-primary">
                                                             <div class="submitting"></div>
                                                         </div>
                                                     </div>
@@ -132,30 +129,14 @@ if (session_status() == PHP_SESSION_NONE) {
                                     </div>
                                     <div class="col-lg-4 col-md-5 d-flex align-items-stretch  bg-secondary" style="border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
                                         <div class="info-wrap  w-100 p-md-5 p-4">
-                                            <h3>Let's get in touch</h3>
-                                            <p class="mb-4">We're open for any suggestion or just to have a chat</p>
-                                            <div class="dbox w-100 d-flex align-items-start">
-                                                <div class="icon d-flex align-items-center justify-content-center">
-                                                    <span class="fa fa-map-marker"></span>
-                                                </div>
-                                                <div class="text pl-3">
-                                                    <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-                                                </div>
-                                            </div>
+                                            <h3>Conheço mais dos meus projetos</h3>
+                                            <p class="mb-4">Estou aberto a novos desafios e network.</p>
                                             <div class="dbox w-100 d-flex align-items-center">
                                                 <div class="icon d-flex align-items-center justify-content-center">
-                                                    <span class="fa fa-phone"></span>
+                                                    <span class="fa fa-globe"></span>
                                                 </div>
                                                 <div class="text pl-3">
-                                                    <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-                                                </div>
-                                            </div>
-                                            <div class="dbox w-100 d-flex align-items-center">
-                                                <div class="icon d-flex align-items-center justify-content-center">
-                                                    <span class="fa fa-paper-plane"></span>
-                                                </div>
-                                                <div class="text pl-3">
-                                                    <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                                                    <p><span>Linkedin:</span> <a href="https://www.linkedin.com/in/vitor-ruis-silva/">vitor-ruis-silva</a></p>
                                                 </div>
                                             </div>
                                             <div class="dbox w-100 d-flex align-items-center">
@@ -163,18 +144,40 @@ if (session_status() == PHP_SESSION_NONE) {
                                                     <span class="fa fa-globe"></span>
                                                 </div>
                                                 <div class="text pl-3">
-                                                    <p><span>Website</span> <a href="#">yoursite.com</a></p>
+                                                    <p><span>Github:</span> <a href="https://github.com/vitorwhois">vitorwhois</a></p>
                                                 </div>
                                             </div>
+                                            <div class="dbox w-100 d-flex align-items-start">
+                                                <div class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="fa fa-map-marker"></span>
+                                                </div>
+                                                <div class="text pl-3">
+                                                    <p><span>Brasil -</span> São Paulo</p>
+                                                </div>
+                                            </div>
+                                            <div class="dbox w-100 d-flex align-items-center">
+                                                <div class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="fa fa-phone"></span>
+                                                </div>
+                                                <div class="text pl-3">
+                                                    <p><span>Whatsapp:</span> <a href="https://wa.me/5511958811725"> 11958811725</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="dbox w-100 d-flex align-items-center">
+                                                <div class="icon d-flex align-items-center justify-content-center">
+                                                    <span class="fa fa-paper-plane"></span>
+                                                </div>
+                                                <div class="text pl-3">
+                                                    <p><span>Email:</span> <a href="mailto:villobos174@gmail.com">villobos174@gmail.com</a></p>
+                                                </div>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </section>

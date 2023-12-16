@@ -92,15 +92,16 @@ session_start();
                     <div class="mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="email" name="email" id="email" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Examplev4">Email</label>
+                        <input type="email" name="email" id="email" class="form-control form-control-lg" required />
                       </div>
                     </div>
 
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" name="senha" id="senha" class="form-control form-control-lg" minlength="6" required />
                         <label class="form-label" for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" class="form-control form-control-lg" minlength="6" required />
+
                       </div>
                     </div>
                     <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>

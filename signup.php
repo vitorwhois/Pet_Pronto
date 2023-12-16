@@ -95,21 +95,21 @@ include('conexao.php');
                     <div class="mb-4 pb-2">
 
                       <div class="form-outline">
-                        <input type="email" id="email" name="email" class="form-control form-control-lg" required />
                         <label class="form-label" for="form3Examplev4">Email</label>
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" required />
                       </div>
                     </div>
 
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="password" name="password" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                         <label class="form-label" for="password">Senha</label>
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                       </div>
                     </div>
                     <div class="mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                         <label class="form-label" for="passwordConf">Confirme a senha</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control form-control-lg" minlength="6" required onchange="checkPassword()" />
                       </div>
                     </div>
                     <div class="row ms-1 mb-4 pb-1" id="buttonDiv"></div>
