@@ -1,14 +1,24 @@
 <?php
 
+use Dotenv\Dotenv;
+
+
+require __DIR__ . '/vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 // Inicia a sessão apenas se não estiver ativa
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-$usuario = 'devweb6sql';
-$senha = 'k2023_FaTEC#$';
-$database = 'devweb6sql';
-$hostname = 'devweb6sql.mysql.dbaas.com.br';
+
+
+$usuario = $_ENV['USUARIO'];
+$senha = $_ENV['SENHA'];
+$database = $_ENV['DATABASE'];
+$hostname = $_ENV['HOSTNAME'];
 
 // Conecta ao banco de dados
 $conn = new mysqli($hostname, $usuario, $senha, $database);
@@ -17,23 +27,3 @@ $conn = new mysqli($hostname, $usuario, $senha, $database);
 if ($conn->connect_error) {
     die('Falha ao conectar ao banco de dados: ' . $conn->connect_error);
 }
-
-
-
-// Não esqueça de fechar a conexão quando terminar de usá-la
-
-
-
-
-
-/*
-$usuario = 'devweb6sql';
-$senha = 'k2023_FaTEC#$';
-$database = 'devweb6sql';
-$hostname = 'devweb6sql.mysql.dbaas.com.br';
-
-$usuario = 'root';
-$senha = '';
-$database = 'petpronto01';
-$hostname = 'localhost';
-*/

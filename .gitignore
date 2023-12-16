@@ -1,1 +1,4 @@
 conexao.php
+.env
+.htaccess
+/vendor/
