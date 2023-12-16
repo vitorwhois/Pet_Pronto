@@ -96,7 +96,7 @@ ul, li {
     color: white !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 766px) {
 
     .navbar{
         height: 100px;
@@ -126,6 +126,13 @@ ul, li {
     .sandwichButton {
         margin-top: -8px;
     }
+
+    /*Contato */
+    .conheca{
+        border-radius: 15px!important;
+        padding:  20px!important;
+    }
+
 }
 
 /*Register */
@@ -271,7 +278,6 @@ ul, li {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 
 .map {
     height: 328px; 

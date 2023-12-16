@@ -84,14 +84,14 @@ if (session_status() == PHP_SESSION_NONE) {
           <div class=" = col-md-6 pe-md-3 pe-lg-5">
             <img class="img-fluid rounded" src="img/vetwork.jpg" alt="Cachorro" height="672">
           </div>
-          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center px-3 pt-5 pb-4 p-lg-0 m-lg-0">
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center px-3 pt-3 pt-m-5 pb-m-4 p-lg-0 m-lg-0">
             <h3 class="pt-2">Prontuario smart</h3>
             <p class="pt-2">Tenha todas as informações do seu pet sempre à mão. Colabore eficientemente com seu veterinário, compartilhando dados cruciais de saúde para um cuidado personalizado e imediatamente acessível.</p>
           </div>
 
         </div>
         <div class="row my-5 py-4 d-flex flex-wrap-reverse">
-          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center ps-md-3 ps-lg-5">
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center ps-md-3 ps-lg-5 pt-3">
             <h3 class="pt-2">Notificações Personalizadas</h3>
             <p class="pt-2">Fique por dentro das necessidades do seu pet. Receba notificações personalizadas, desde lembretes de consultas até atualizações de saúde, para que você possa cuidar com confiança.</p>
           </div>
@@ -104,7 +104,7 @@ if (session_status() == PHP_SESSION_NONE) {
           <div class="col-md-6 ">
             <img class="img-fluid rounded pe-md-3 pe-lg-5" src="img/lembrete.png" alt="pessoa recebendo alerta no ceular" height="672">
           </div>
-          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center">
+          <div class="col-md-6 d-flex flex-column align-content-center justify-content-center pt-3">
             <h3 class="pt-2">Registro de Vacinação e Lembretes</h3>
             <p class="pt-2">Nunca mais perca uma vacina. Registre o histórico de vacinação do seu pet de forma organizada e receba lembretes automáticos para garantir que seu amigo esteja sempre protegido."</p>
           </div>
@@ -176,7 +176,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <li class="nav-link"><a href="https://github.com/vitorwhois/Pet_Pronto">Projeto em construção <i class="bi bi-github"></i></a></li>
       </ul>
       <ul class="nav col justify-content-center justify-content-md-end" id="FooterSocial">
-        <li><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Facebook.png" alt=""></svg></a></li>
+        <li><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Linkedin.png" alt=""></svg></a></li>
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Instagram.png" alt=""></svg></a></li>
         <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><img src="./img/icons/Twitter.png" alt=""></svg></a></li>
       </ul>
