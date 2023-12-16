@@ -1,0 +1,53 @@
+{
+  "name": "Deploy to Railway",
+  "on": {
+    "push": {
+      "branches": ["desenvolvimento"]
+    }
+  },
+  "jobs": {
+    "deploy": {
+      "runs-on": "ubuntu-latest",
+      "steps": [
+        {
+          "name": "Checkout repository",
+          "uses": "actions/checkout@v2"
+        },
+        {
+          "name": "Set up PHP",
+          "uses": "shivammathur/setup-php@v2",
+          "with": {
+            "php-version": "7.4"
+          }
+        },
+        {
+          "name": "Install dependencies",
+          "run": "composer install"
+        },
+        {
+          "name": "Configure environment variables",
+          "run": [
+            "echo \"DB_USER=${{ secrets.DB_USER }}\" >> .env",
+            "echo \"DB_PASSWORD=${{ secrets.DB_PASSWORD }}\" >> .env",
+            "echo \"DB_DATABASE=${{ secrets.DB_DATABASE }}\" >> .env",
+            "echo \"DB_HOSTNAME=${{ secrets.DB_HOSTNAME }}\" >> .env"
+          ]
+        },
+        {
+          "name": "Deploy",
+          "run": [
+            "railway up",
+            "# Comandos adicionais para realizar o deploy no Railway"
+          ],
+          "env": {
+            "RAILWAY_TOKEN": "${{ secrets.RAILWAY_TOKEN }}",
+            "DB_USER": "${{ secrets.DB_USER }}",
+            "DB_PASSWORD": "${{ secrets.DB_PASSWORD }}",
+            "DB_DATABASE": "${{ secrets.DB_DATABASE }}",
+            "DB_HOSTNAME": "${{ secrets.DB_HOSTNAME }}"
+          }
+        }
+      ]
+    }
+  }
+}
