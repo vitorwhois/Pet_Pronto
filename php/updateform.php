@@ -30,21 +30,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Se o id_cliente não existir, redireciona ou trata o erro conforme necessário
     if ($check_stmt->num_rows == 0) {
-        echo "Erro: id_cliente não encontrado na tabela login.";
-        exit;
+        die("Erro: id_cliente não encontrado na tabela login.");
     }
 
     // Lida com o upload da foto
     if (isset($_FILES['foto'])) {
         $foto_nome = $_FILES['foto']['name'];
         $foto_temp = $_FILES['foto']['tmp_name'];
-        $foto_destino = "../img/cliente/pet" . uniqid() . "." . pathinfo($foto_nome, PATHINFO_EXTENSION);
+        $foto_destino = __DIR__ . "/../img/cliente/pet" . uniqid() . "." . pathinfo($foto_nome, PATHINFO_EXTENSION);
 
         // Move a foto para o destino desejado
-        move_uploaded_file($foto_temp, $foto_destino);
-
-        // Salva o caminho/nome da foto no banco de dados se necessário
-        $foto_caminho_no_banco = $foto_destino;
+        if (move_uploaded_file($foto_temp, $foto_destino)) {
+            $foto_caminho_no_banco = $foto_destino;
+        } else {
+            die("Erro ao mover o arquivo.");
+        }
     } else {
         // Se não houver upload de foto, mantenha o valor existente no banco de dados
         $foto_caminho_no_banco = null;
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($update_stmt->execute()) {
         header("Location: ../perfilusuario.php");
     } else {
-        echo "Erro: " . $update_stmt->error;
+        die("Erro ao atualizar os dados: " . $update_stmt->error);
     }
 
     // Fecha as instruções preparadas
