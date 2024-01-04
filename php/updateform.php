@@ -39,11 +39,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $foto_temp = $_FILES['foto']['tmp_name'];
         $foto_destino = __DIR__ . "/../img/cliente/pet" . uniqid() . "." . pathinfo($foto_nome, PATHINFO_EXTENSION);
 
+        // Verifica se o diretório de destino existe
+        if (!file_exists(dirname($foto_destino))) {
+            // Cria o diretório se não existir
+            mkdir(dirname($foto_destino), 0777, true);
+        }
+
         // Move a foto para o destino desejado
         if (move_uploaded_file($foto_temp, $foto_destino)) {
             $foto_caminho_no_banco = $foto_destino;
         } else {
-            die("Erro ao mover o arquivo.");
+            die("Erro ao mover o arquivo. Detalhes do erro: " . error_get_last()['message']);
         }
     } else {
         // Se não houver upload de foto, mantenha o valor existente no banco de dados
@@ -69,3 +75,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Fecha a conexão
 $conn->close();
+?>
