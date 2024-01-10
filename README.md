@@ -199,12 +199,6 @@
 
   + <a href="https://github.com/vitorwhois">Vitor Ruis</a>
 
-  + <a href="https://github.com/SamantaBarrosC">Samanta Barros</a>
-
   + <a href="https://github.com/jKTeix">Kley</a>
-
-  + <a href="https://github.com/Almir?">Almir</a>
-
-  + <a href="https://github.com/Lili.Anne?">Lili Anne</a>
 
 
